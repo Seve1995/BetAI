@@ -15,59 +15,30 @@ A **1-month value betting experiment** (Jan 25 - Feb 25, 2026) where:
 
 ---
 
-## 📁 Key Files
-
-| File | Purpose |
-|------|---------|
-| `run_experiment.py` | **DAILY SCRIPT** - run this every day |
-| `experiment_state.json` | **PERSISTENT STATE** - bankroll, bets, stats |
-| `EXPERIMENT.md` | Human-readable experiment log |
-| `dashboard.html` | Visual dashboard (open in browser) |
-| `value_bets.py` | Standalone value bet finder |
-| `src/ingestion/odds_scraper.py` | Oddsportal scraper |
-
----
-
 ## 📊 Current State (Last Updated: 2026-01-25)
 
 ```
 Day: 1/31
-Bankroll: €75.16 (started €100)
-Pending Bets: 6
+Bankroll: €75.64 (started €100)
+Pending Bets: 8
 Completed: 0
 ROI: 0%
+Model Version: 1.1 (Fixed)
 ```
 
-### Today's Bets (Day 1)
-1. Atletico vs Mallorca → 2 @ 9.73 (€2.10)
-2. Paris FC vs Angers → 2 @ 4.61 (€2.95)
-3. Alaves vs Betis → 2 @ 2.83 (€5.09)
-4. **Brentford vs Forest → 1 @ 1.85 (€8.92)** ← biggest stake
-5. Real Sociedad vs Celta → 2 @ 3.55 (€2.62)
-6. Roma vs Milan → 2 @ 2.85 (€3.16)
+### Today's Bets (Day 1 - Fixed)
+1. Paris FC vs Angers → 2 @ 4.61 (€2.41)
+2. Alaves vs Betis → 2 @ 2.82 (€4.20)
+3. Arsenal vs Man Utd → 2 @ 5.48 (€1.52)
+4. **Brentford vs Forest → 1 @ 1.84 (€7.86)**
+5. Crystal Palace vs Chelsea → 1 @ 3.46 (€2.62)
+6. Real Sociedad vs Celta → 2 @ 3.54 (€2.20)
+7. Genoa vs Bologna → 1 @ 3.28 (€1.99)
+8. Lille vs Strasbourg → 1 @ 2.40 (€1.56)
 
 ---
 
-## 🔧 How to Continue the Experiment
-
-### Daily Workflow
-```bash
-cd c:/Users/Seve/BetAI/betting-engine
-python run_experiment.py
-```
-
-1. Script asks for results of pending bets (W/L/P)
-2. Scrapes today's odds and xG
-3. Finds new value bets
-4. Asks for confirmation
-5. Updates state and dashboard
-
-### Check Dashboard
-Open `dashboard.html` in browser - shows bankroll chart, bets, ROI.
-
----
-
-## 📐 Strategy Parameters
+## 📐 Strategy Parameters (v1.1)
 
 | Parameter | Value | Meaning |
 |-----------|-------|---------|
@@ -76,46 +47,25 @@ Open `dashboard.html` in browser - shows bankroll chart, bets, ROI.
 | KELLY_FRACTION | 25% | Use 1/4 Kelly for safety |
 | MAX_SINGLE | 10% | Max 10% bankroll per bet |
 | MAX_DAILY | 25% | Max 25% bankroll per day |
+| **MAX_ODDS** | **6.0** | Avoid extreme longshots |
 
 ---
 
-## 🧮 The Math
+## 🧮 The Math (v1.1 Fixed)
 
-### Expected Value (EV)
-```
-EV = (our_prob × (odds - 1)) - (1 - our_prob)
-```
-If EV > 0, it's a **value bet**.
-
-### Kelly Criterion (stake sizing)
-```
-kelly = (odds - 1) × prob - (1 - prob) / (odds - 1)
-stake = kelly × 0.25 × bankroll  # quarter Kelly
-```
-
-### Probability Model
-- Uses **Poisson distribution** on expected goals
-- xG weighted: 50% season avg, 30% recent form, 20% actual goals
-- Home advantage: 1.12x multiplier
+### Corrected Probability Model
+- **home_xg** = home_attack × away_defense_weakness × league_avg × home_advantage
+- **away_xg** = away_attack × home_defense_weakness × league_avg
+- *Attack Strength* = team_xg / league_avg
+- *Defense Weakness* = team_xga / league_avg
+- Regression: 70% model prediction, 30% recent form
 
 ---
 
 ## 📝 Learnings Log
 
 ### Week 1
-- **Day 1**: Found 6 value bets, avg EV +39%. Heavy on away wins (5/6). Biggest stake on Brentford (highest edge at 16.4%).
-
-*(Update this section daily with observations)*
-
----
-
-## ⚠️ Important Notes for Future Sessions
-
-1. **ALWAYS check `experiment_state.json`** for current bankroll and pending bets
-2. **Ask user for bet results** before analyzing new day
-3. **Update EXPERIMENT.md** after each run
-4. **Refresh dashboard** to show latest data
-5. **Track learnings** to improve strategy over time
+- **Day 1**: Found bug in xG calculation where defensive factors were incorrectly applied (multiplying by low values for strong defenses). Fixed in v1.1. Added `max_odds` limit of 6.0 to reduce variance.
 
 ---
 
@@ -123,16 +73,5 @@ stake = kelly × 0.25 × bankroll  # quarter Kelly
 
 | Version | Change | Date | Reason |
 |---------|--------|------|--------|
-| 1.0 | Initial | 2026-01-25 | Baseline strategy |
-
-*(Add rows when strategy is modified based on learnings)*
-
----
-
-## 📞 Contact with User
-
-The user (Seve) runs this experiment daily. When starting a new session:
-1. Read this file first
-2. Check current state in `experiment_state.json`
-3. Ask if there are bet results to record
-4. Then proceed with daily analysis
+| 1.0 | Initial | 2026-01-25 | Baseline (Buggy xG) |
+| 1.1 | Fixed xG | 2026-01-25 | Correct defensive factors + Max Odds 6.0 |
