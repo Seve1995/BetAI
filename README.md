@@ -1,38 +1,49 @@
-# 🎰 BetAI - Value Betting with AI
+# 🎰 BetAI - Value Betting Engine
 
-An AI-powered betting system that finds **+EV (positive Expected Value)** bets using machine learning and statistical models.
-
-## 📁 Projects
-
-### [betting-engine/](./betting-engine/)
-The main value betting engine:
-- **xG predictions** from Understat (5 leagues)
+An AI-powered betting system that finds **+EV (positive Expected Value)** bets by combining:
+- **xG predictions** from Understat
 - **Real-time odds** from Oddsportal
-- **Poisson probability model** for match outcomes
+- **Poisson probability model**
 - **Kelly Criterion** for optimal stake sizing
-- **Visual dashboard** with live tracking
+
+## 🌐 Live Dashboard
+
+**[seve1995.github.io/BetAI](https://seve1995.github.io/BetAI/)**
 
 ## 🚀 Quick Start
 
 ```bash
-cd betting-engine
 pip install -r requirements.txt
 python value_bets.py
 ```
 
-## 📊 Live Experiment
+## 📁 Structure
 
-Running a 1-month experiment (Jan 25 - Feb 25, 2026):
-- Starting bankroll: €100
-- Daily value bet identification
-- Track wins/losses and ROI
+```
+├── index.html             # Dashboard (GitHub Pages)
+├── value_bets.py          # Main value betting engine
+├── run_experiment.py      # Daily experiment runner
+├── experiment_state.json  # Persistent state
+├── EXPERIMENT.md          # Experiment log
+├── src/ingestion/         # Scrapers (Oddsportal, Understat)
+└── src/models/            # Prediction models
+```
 
-See [betting-engine/EXPERIMENT.md](./betting-engine/EXPERIMENT.md) for daily updates.
+## 📊 The Math
 
-## 🌐 Dashboard
+```
+EV = (our_prob × (odds - 1)) - (1 - our_prob)
+```
+Only bets where **EV > 5%** and **Edge > 3%** are recommended.
 
-View the live dashboard: **[seve1995.github.io/BetAI](https://seve1995.github.io/BetAI/)**
+## 🎰 1-Month Experiment
+
+Running Jan 25 - Feb 25, 2026:
+- Starting: €100
+- Day 1: 6 bets placed, €24.84 staked
+
+See [EXPERIMENT.md](./EXPERIMENT.md) for updates.
 
 ## ⚠️ Disclaimer
 
-For educational purposes only. Gambling involves risk. Bet responsibly.
+Educational purposes only. Bet responsibly.
