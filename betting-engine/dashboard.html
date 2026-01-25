@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Betting Experiment Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #05070a;
+            --card-bg: rgba(13, 17, 23, 0.7);
+            --accent-primary: #00f2ff;
+            --accent-secondary: #7000ff;
+            --accent-success: #3fb950;
+            --accent-danger: #f85149;
+            --accent-warning: #f0883e;
+            --text-main: #e6edf3;
+            --text-value: #ffffff;
+            --text-dim: #9198a1;
+            --glass-bg: rgba(13, 17, 23, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --accent-primary: #0070f3;
+            --accent-secondary: #7928ca;
+            --accent-success: #1a7f37;
+            --accent-danger: #d1242f;
+            --accent-warning: #bf8700;
+            --text-main: #1e293b;
+            --text-value: #0f172a;
+            --text-dim: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(112, 0, 255, 0.05) 0%, transparent 50%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        [data-theme="light"] body::before {
+            background:
+                radial-gradient(circle at 0% 0%, rgba(0, 112, 243, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(121, 40, 202, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Theme Toggle */
+        .theme-switch {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .theme-switch-track {
+            width: 56px;
+            height: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .theme-switch-track:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .theme-switch-thumb {
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="light"] .theme-switch-thumb {
+            transform: translateX(26px);
+        }
+
+        .theme-switch-icons {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 6px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .theme-switch-icons span {
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+
+        [data-theme="dark"] .icon-moon {
+            opacity: 1;
+        }
+
+        [data-theme="light"] .icon-sun {
+            opacity: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(-45deg, #00f2ff, #3fb950, #f0883e, #00f2ff);
+            background-size: 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientHeading 8s ease infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes gradientHeading {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(63, 185, 80, 0.1);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            padding: 8px 20px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            color: var(--accent-success);
+            margin-top: 16px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .mono-font,
+        .value {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+        }
+
+        .stat-card h3 {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-value);
+        }
+
+        .stat-card .change {
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        .change.positive {
+            color: var(--accent-success);
+        }
+
+        .change.negative {
+            color: var(--accent-danger);
+        }
+
+        .chart-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .chart-header h2 {
+            font-size: 1.2rem;
+        }
+
+        .chart-wrapper {
+            height: 280px;
+        }
+
+        .bets-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .bets-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .bet-card {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 16px;
+            align-items: center;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+
+        [data-theme="light"] .bet-card {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .bet-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .bet-match {
+            font-weight: 600;
+        }
+
+        .bet-match .league {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 2px;
+        }
+
+        .bet-tip {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--accent-primary);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .bet-stake {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .bet-result {
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .bet-result.win {
+            background: rgba(63, 185, 80, 0.15);
+            color: var(--accent-success);
+        }
+
+        .bet-result.loss {
+            background: rgba(248, 81, 73, 0.15);
+            color: var(--accent-danger);
+        }
+
+        .bet-result.pending {
+            background: rgba(240, 136, 62, 0.15);
+            color: var(--accent-warning);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-dim);
+        }
+
+        .empty-state code {
+            background: var(--glass-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .strategy-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .strategy-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .param-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+        }
+
+        .param-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        [data-theme="light"] .param-item {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .param-item .label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .param-item .value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .bet-card {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="theme-switch" id="themeToggle">
+            <div class="theme-switch-track">
+                <div class="theme-switch-icons">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun">☀️</span>
+                </div>
+                <div class="theme-switch-thumb"></div>
+            </div>
+        </div>
+
+        <header>
+            <h1>💰 Betting Experiment</h1>
+            <p class="subtitle">1-Month Value Betting Challenge • xG Predictions</p>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>LIVE</span>
+                <span style="opacity: 0.5; margin: 0 6px;">|</span>
+                <span>Day <span id="currentDay">1</span>/31</span>
+            </div>
+        </header>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <h3>💰 Bankroll</h3>
+                <div class="value" id="bankroll">€100.00</div>
+                <div class="change" id="bankrollChange">Starting capital</div>
+            </div>
+            <div class="stat-card">
+                <h3>📊 ROI</h3>
+                <div class="value" id="roi">0.0%</div>
+                <div class="change" id="roiStatus">No bets yet</div>
+            </div>
+            <div class="stat-card">
+                <h3>✅ Win Rate</h3>
+                <div class="value" id="winRate">--%</div>
+                <div class="change" id="winRateDetail">0W / 0L</div>
+            </div>
+            <div class="stat-card">
+                <h3>🎯 Total Bets</h3>
+                <div class="value" id="totalBets">0</div>
+                <div class="change" id="pendingBets">0 pending</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2>📈 Bankroll Over Time</h2>
+                <span class="mono-font" style="color: var(--text-dim); font-size: 0.8rem;" id="lastUpdate">--</span>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="bankrollChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bets-section">
+            <h2>📝 Recent Bets</h2>
+            <div id="betsContainer">
+                <div class="empty-state">
+                    <p>No bets yet. Run <code>python run_experiment.py</code></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-section">
+            <h2>⚙️ Strategy</h2>
+            <div class="param-grid">
+                <div class="param-item">
+                    <div class="label">Min EV</div>
+                    <div class="value" id="minEv">5%</div>
+                </div>
+                <div class="param-item">
+                    <div class="label">Min Edge</div>
+                    <div class="value" id="minEdge">3%</div>
+                </div>
+                <div class="param-item">
+                    <div class="label">Kelly</div>
+                    <div class="value" id="kellyFraction">25%</div>
+                </div>
+                <div class="param-item">
+                    <div class="label">Max Bet</div>
+                    <div class="value" id="maxSingle">10%</div>
+                </div>
+                <div class="param-item">
+                    <div class="label">Max Daily</div>
+                    <div class="value" id="maxDaily">25%</div>
+                </div>
+                <div class="param-item">
+                    <div class="label">Version</div>
+                    <div class="value" id="strategyVersion">1.0</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎰 Jan 25 → Feb 25, 2026 | Data: Understat + Oddsportal</p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            if (bankrollChart) updateChartColors();
+        });
+
+        let bankrollChart;
+
+        async function loadData() {
+            try {
+                const response = await fetch('experiment_state.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Not found');
+                const state = await response.json();
+                updateDashboard(state);
+            } catch (e) { console.log('Demo mode'); }
+        }
+
+        function updateDashboard(state) {
+            const bankroll = state.current_state.bankroll;
+            const initial = state.experiment.initial_bankroll;
+            const profit = bankroll - initial;
+            const roi = (profit / initial) * 100;
+            const stats = state.stats;
+
+            document.getElementById('bankroll').textContent = `€${bankroll.toFixed(2)}`;
+            document.getElementById('currentDay').textContent = state.current_state.day;
+
+            const changeEl = document.getElementById('bankrollChange');
+            if (profit > 0) { changeEl.textContent = `+€${profit.toFixed(2)}`; changeEl.className = 'change positive'; }
+            else if (profit < 0) { changeEl.textContent = `-€${Math.abs(profit).toFixed(2)}`; changeEl.className = 'change negative'; }
+            else { changeEl.textContent = 'No change'; changeEl.className = 'change'; }
+
+            document.getElementById('roi').textContent = `${roi >= 0 ? '+' : ''}${roi.toFixed(1)}%`;
+            document.getElementById('roiStatus').textContent = stats.total_bets > 0 ? `${stats.total_bets} bets` : 'No bets';
+
+            const total = stats.wins + stats.losses;
+            document.getElementById('winRate').textContent = total > 0 ? `${((stats.wins / total) * 100).toFixed(0)}%` : '--%';
+            document.getElementById('winRateDetail').textContent = `${stats.wins}W / ${stats.losses}L`;
+
+            document.getElementById('totalBets').textContent = stats.total_bets;
+            document.getElementById('pendingBets').textContent = `${stats.pending} pending`;
+
+            const s = state.strategy;
+            document.getElementById('minEv').textContent = `${(s.min_ev * 100).toFixed(0)}%`;
+            document.getElementById('minEdge').textContent = `${(s.min_edge * 100).toFixed(0)}%`;
+            document.getElementById('kellyFraction').textContent = `${(s.kelly_fraction * 100).toFixed(0)}%`;
+            document.getElementById('maxSingle').textContent = `${(s.max_single_stake_pct * 100).toFixed(0)}%`;
+            document.getElementById('maxDaily').textContent = `${(s.max_daily_stake_pct * 100).toFixed(0)}%`;
+            document.getElementById('strategyVersion').textContent = s.version;
+
+            if (state.current_state.last_run) document.getElementById('lastUpdate').textContent = state.current_state.last_run;
+
+            renderBets(state.pending_bets, state.completed_bets);
+            renderChart(state);
+        }
+
+        function renderBets(pending, completed) {
+            const container = document.getElementById('betsContainer');
+            const allBets = [...pending, ...completed].slice(-8).reverse();
+
+            if (allBets.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No bets yet. Run <code>python run_experiment.py</code></p></div>';
+                return;
+            }
+
+            container.innerHTML = allBets.map(bet => {
+                const cls = bet.result === 'WIN' ? 'win' : bet.result === 'LOSS' ? 'loss' : 'pending';
+                const txt = bet.result === 'WIN' ? `+€${bet.profit?.toFixed(2)}` : bet.result === 'LOSS' ? `-€${bet.stake?.toFixed(2)}` : 'Pending';
+                return `<div class="bet-card">
+                    <div class="bet-match"><div class="league">${bet.league || ''} • ${bet.date}</div><div>${bet.match}</div></div>
+                    <div class="bet-tip">${bet.tip}</div>
+                    <div class="bet-stake">€${bet.stake?.toFixed(2)} @ ${bet.odds?.toFixed(2)}</div>
+                    <div class="bet-result ${cls}">${txt}</div>
+                </div>`;
+            }).join('');
+        }
+
+        function getChartColors() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            return {
+                line: isDark ? '#00f2ff' : '#0070f3',
+                grid: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
+                text: isDark ? '#9198a1' : '#64748b'
+            };
+        }
+
+        function updateChartColors() {
+            const c = getChartColors();
+            bankrollChart.data.datasets[0].borderColor = c.line;
+            bankrollChart.options.scales.y.grid.color = c.grid;
+            bankrollChart.options.scales.y.ticks.color = c.text;
+            bankrollChart.options.scales.x.ticks.color = c.text;
+            bankrollChart.update();
+        }
+
+        function renderChart(state) {
+            const ctx = document.getElementById('bankrollChart').getContext('2d');
+            const points = [{ day: 0, val: state.experiment.initial_bankroll }];
+            let running = state.experiment.initial_bankroll;
+            state.completed_bets.forEach((b, i) => { running += b.profit || 0; points.push({ day: i + 1, val: running }); });
+            points.push({ day: state.current_state.day, val: state.current_state.bankroll });
+
+            if (bankrollChart) bankrollChart.destroy();
+            const c = getChartColors();
+            const grad = ctx.createLinearGradient(0, 0, 0, 280);
+            grad.addColorStop(0, c.line + '40'); grad.addColorStop(1, c.line + '00');
+
+            bankrollChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels: points.map(p => `Day ${p.day}`), datasets: [{ data: points.map(p => p.val), borderColor: c.line, backgroundColor: grad, fill: true, tension: 0.4, pointRadius: 4, borderWidth: 3 }] },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: false, grid: { color: c.grid }, ticks: { color: c.text, callback: v => '€' + v } }, x: { grid: { display: false }, ticks: { color: c.text } } }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadData);
+        setInterval(loadData, 30000);
+    </script>
+</body>
+
+</html>

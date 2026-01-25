@@ -1,0 +1,105 @@
+{
+  "experiment": {
+    "start_date": "2026-01-25",
+    "end_date": "2026-02-25",
+    "initial_bankroll": 100.0
+  },
+  "current_state": {
+    "bankroll": 75.16,
+    "day": 1,
+    "last_run": "2026-01-25"
+  },
+  "strategy": {
+    "version": "1.0",
+    "min_ev": 0.05,
+    "min_edge": 0.03,
+    "kelly_fraction": 0.25,
+    "max_single_stake_pct": 0.1,
+    "max_daily_stake_pct": 0.25
+  },
+  "stats": {
+    "total_bets": 6,
+    "wins": 0,
+    "losses": 0,
+    "pending": 6,
+    "total_staked": 24.840000000000003,
+    "total_returns": 0.0,
+    "total_profit": 0.0
+  },
+  "pending_bets": [
+    {
+      "date": "2026-01-25",
+      "match": "Atletico Madrid vs Mallorca",
+      "league": "La Liga",
+      "tip": "2 (Mallorca)",
+      "odds": 9.73,
+      "stake": 2.1,
+      "ev": 0.7334394391364025,
+      "edge": 0.0753791818228574,
+      "our_prob": 0.1781541047416652,
+      "result": "PENDING"
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Paris FC vs Angers",
+      "league": "Ligue 1",
+      "tip": "2 (Angers)",
+      "odds": 4.61,
+      "stake": 2.95,
+      "ev": 0.42576649076200324,
+      "edge": 0.09235715634750613,
+      "our_prob": 0.30927689604381847,
+      "result": "PENDING"
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Alaves vs Real Betis",
+      "league": "La Liga",
+      "tip": "2 (Real Betis)",
+      "odds": 2.83,
+      "stake": 5.09,
+      "ev": 0.3727609823202336,
+      "edge": 0.13171766159725568,
+      "our_prob": 0.48507455205661965,
+      "result": "PENDING"
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Brentford vs Nottingham Forest",
+      "league": "Premier League",
+      "tip": "1 (Brentford)",
+      "odds": 1.85,
+      "stake": 8.92,
+      "ev": 0.30319822295945564,
+      "edge": 0.16389093132943555,
+      "our_prob": 0.704431471869976,
+      "result": "PENDING"
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Real Sociedad vs Celta Vigo",
+      "league": "La Liga",
+      "tip": "2 (Celta Vigo)",
+      "odds": 3.55,
+      "stake": 2.62,
+      "ev": 0.26770571128685405,
+      "edge": 0.07541005951742369,
+      "our_prob": 0.3571002003624941,
+      "result": "PENDING"
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Roma vs AC Milan",
+      "league": "Serie A",
+      "tip": "2 (AC Milan)",
+      "odds": 2.85,
+      "stake": 3.16,
+      "ev": 0.23389024864407382,
+      "edge": 0.08206675391020135,
+      "our_prob": 0.43294394689265747,
+      "result": "PENDING"
+    }
+  ],
+  "completed_bets": [],
+  "learnings": []
+}
