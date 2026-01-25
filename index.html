@@ -442,6 +442,51 @@
             font-size: 0.85rem;
         }
 
+        /* Segmented Control */
+        .segmented-control {
+            display: flex;
+            background: var(--card-bg);
+            padding: 3px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            gap: 2px;
+        }
+
+        .segment-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .segment-btn.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        [data-theme="dark"] .segment-btn.active {
+            background: rgba(0, 242, 255, 0.15);
+            color: var(--accent-primary);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+        }
+
+        .segment-btn:not(.active):hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         @media (max-width: 768px) {
             .bet-card {
                 grid-template-columns: 1fr;
@@ -450,6 +495,12 @@
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .chart-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
             }
         }
     </style>
@@ -504,7 +555,15 @@
         <div class="chart-container">
             <div class="chart-header">
                 <h2>📈 Bankroll Over Time</h2>
-                <span class="mono-font" style="color: var(--text-dim); font-size: 0.8rem;" id="lastUpdate">--</span>
+                <div class="chart-controls">
+                    <div class="segmented-control">
+                        <button class="segment-btn" data-scale="zero" onclick="setYScale('zero')">From €0</button>
+                        <button class="segment-btn active" data-scale="dynamic"
+                            onclick="setYScale('dynamic')">Dynamic</button>
+                    </div>
+                    <span class="mono-font" style="color: var(--text-dim); font-size: 0.75rem;"
+                        id="lastUpdate">--</span>
+                </div>
             </div>
             <div class="chart-wrapper">
                 <canvas id="bankrollChart"></canvas>
@@ -570,6 +629,19 @@
         });
 
         let bankrollChart;
+        let yAxisStartAtZero = false;
+
+        function setYScale(mode) {
+            yAxisStartAtZero = (mode === 'zero');
+            document.querySelectorAll('.segment-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.scale === mode);
+            });
+            if (bankrollChart) {
+                bankrollChart.options.scales.y.beginAtZero = yAxisStartAtZero;
+                bankrollChart.options.scales.y.min = yAxisStartAtZero ? 0 : undefined;
+                bankrollChart.update();
+            }
+        }
 
         async function loadData() {
             try {
@@ -675,8 +747,8 @@
                 data: { labels: points.map(p => `Day ${p.day}`), datasets: [{ data: points.map(p => p.val), borderColor: c.line, backgroundColor: grad, fill: true, tension: 0.4, pointRadius: 4, borderWidth: 3 }] },
                 options: {
                     responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: false, grid: { color: c.grid }, ticks: { color: c.text, callback: v => '€' + v } }, x: { grid: { display: false }, ticks: { color: c.text } } }
+                    plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(13,17,23,0.9)', titleColor: '#fff', bodyColor: '#e6edf3', padding: 10, displayColors: false, callbacks: { label: ctx => '€' + ctx.raw.toFixed(2) } } },
+                    scales: { y: { beginAtZero: yAxisStartAtZero, min: yAxisStartAtZero ? 0 : undefined, grid: { color: c.grid }, ticks: { color: c.text, font: { family: 'JetBrains Mono', size: 10 }, callback: v => '€' + v } }, x: { grid: { display: false }, ticks: { color: c.text, font: { family: 'JetBrains Mono', size: 10 } } } }
                 }
             });
         }
