@@ -1,110 +1,76 @@
 """
-Unified Main Orchestrator - Sports Betting Engine
-=================================================
-
-CLI unica per gestire:
-1. Ingestione storica (CSV + xG)
-2. Analisi partite di oggi (Scraped)
-3. Modelli predittivi
-
-Usage:
-    python main.py
+MAIN ORCHESTRATOR - Daily Betting Experiment
+============================================
 """
 
+import os
 import sys
-from pathlib import Path
+from datetime import datetime
 
-# Fix path per import
-sys.path.insert(0, str(Path(__file__).parent))
+# Add src to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 
-from src.core.db_manager import DatabaseManager
-from src.core.config import settings
-from src.core.merger import TeamMerger
-from src.ingestion.historics_loader import HistoricsLoader
-from src.ingestion.advanced_scraper import AdvancedScraper
-from src.ingestion.today_scraper import TodayScraper
-from src.models.predictor import MatchPredictor
-import time
+from ingestion.fotmob_scraper import FotMobScraper
+from engine.stats_manager import StatsManager
+from engine.prediction_engine import PredictionEngine
 
-def display_banner():
-    print("""
-+==================================================================+
-|                                                                  |
-|   [*]  UNIFIED PREDICTION ENGINE (ZERO-COST)  [*]                |
-|                                                                  |
-+==================================================================+
-    """)
-
-def run_ingestion(backfill=False):
-    db = DatabaseManager()
-    db.create_tables()
-    loader = HistoricsLoader(db)
-    scraper = AdvancedScraper(db)
+def run_experiment():
+    print(f"--- BETTING EXPERIMENT {datetime.now().strftime('%Y-%m-%d')} ---")
     
-    print("\n📦 Inizio Ingestione Dati...")
-    if backfill:
-        loader.backfill()
-    else:
-        loader.backfill(years=[24]) # Solo stagione attuale
-        
-    print("\n🕷️ Scarico Stats Avanzate (xG)...")
-    for l_name in settings.LEAGUES.keys():
-        df = scraper.scrape_season(l_name, 2024)
-        scraper.save_stats(df, l_name, "2024/2025")
-    print("✅ Ingestione completata.")
-
-def analyze_today():
-    db = DatabaseManager()
-    scraper = TodayScraper()
-    merger = TeamMerger(db)
-    predictor = MatchPredictor(db)
+    scraper = FotMobScraper()
+    stats_manager = StatsManager()
+    engine = PredictionEngine(stats_manager)
     
-    matches = scraper.get_todays_matches()
-    
-    if not matches:
-        print("\n❌ Nessun match trovato per oggi nelle leghe monitorate.")
-        return
-
-    print(f"\n🔮 Analisi Partite di Oggi ({len(matches)} match tip):")
-    print("-" * 60)
-    
-    for m in matches:
-        # Converti nomi per il database
-        h_std = merger.get_standard_name(m['home'])
-        a_std = merger.get_standard_name(m['away'])
-        
-        # Esegui predizione
-        pred = predictor.predict_match(h_std, a_std, m['league'])
-        
-        print(f"\n📍 {m['league']}: {m['home']} vs {m['away']}")
-        
-        if pred:
-            print(f"   ├─ xG previsti: {pred['home_expect']:.2f} - {pred['away_expect']:.2f}")
-            print(f"   ├─ 1X2 Prob: {pred['home_win']:.0%} | {pred['draw']:.0%} | {pred['away_win']:.0%}")
-            print(f"   └─ Over 2.5: {pred['over_2.5']:.0%}")
+    # 1. Update stats for all tracked leagues
+    print("\nUpdating league stats...")
+    for league in scraper.LEAGUE_IDS.keys():
+        try:
+            team_stats = scraper.get_team_xg_stats(league)
+            if team_stats:
+                stats_manager.update_league_stats(league, team_stats)
+                # print(f"  [OK] {league}")
+        except Exception as e:
+            print(f"  [ERROR] Updating {league}: {e}")
             
-            # Tip semplice
-            if pred['home_win'] > 0.55: print("   💡 TIP: Casa Vincente")
-            elif pred['away_win'] > 0.45: print("   💡 TIP: Trasferta Vincente")
-        else:
-            print("   ⚠️ Statistiche insufficienti per questo match.")
+    # 2. Fetch today's matches
+    print("\nFetching today's matches...")
+    matches = scraper.get_matches_for_day()
+    print(f"Found {len(matches)} matches in tracked leagues.")
+    
+    # 3. Generate predictions
+    predictions = []
+    for match in matches:
+        try:
+            pred = engine.predict_match(match['league'], match['home'], match['away'])
+            if pred:
+                # Store prediction for sorting
+                predictions.append({
+                    **match,
+                    **pred
+                })
+        except Exception:
+            continue
+            
+    # 4. Filter for high confidence BTTS (>60%)
+    print("\n--- HIGH CONFIDENCE BTTS TIPS ---")
+    btts_tips = [p for p in predictions if p['btts_prob'] > 0.60]
+    # Sort by probability
+    btts_tips.sort(key=lambda x: x['btts_prob'], reverse=True)
+    
+    if not btts_tips:
+        print("No high confidence tips found today.")
+    else:
+        for tip in btts_tips:
+            print(f"[{tip['league']}] {tip['home']} vs {tip['away']}")
+            print(f"   BTTS Prob: {tip['btts_prob']:.2%}")
+            print(f"   Expected xG: {tip['home_xg_expected']:.2f} - {tip['away_xg_expected']:.2f}")
+            print("-" * 30)
 
-def main():
-    display_banner()
-    while True:
-        print("\nMENU PRINCIPALE:")
-        print("  1. 📁 Aggiorna dati (Solo 2024)")
-        print("  2. 📂 Backfill storico (2015-2024 - Richiede tempo!)")
-        print("  3. 🔮 ANALIZZA PARTITE DI OGGI")
-        print("  0. Esci")
-        
-        choice = input("\nScelta: ").strip()
-        
-        if choice == "1": run_ingestion(backfill=False)
-        elif choice == "2": run_ingestion(backfill=True)
-        elif choice == "3": analyze_today()
-        elif choice == "0": break
-        else: print("Opzione non valida.")
+    # 5. Output summary
+    print(f"\nExperiment Summary:")
+    print(f"  Matches Scanned: {len(matches)}")
+    print(f"  Predictions Generated: {len(predictions)}")
+    print(f"  Tips Selected: {len(btts_tips)}")
 
 if __name__ == "__main__":
-    main()
+    run_experiment()

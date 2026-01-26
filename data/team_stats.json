@@ -1,0 +1,1581 @@
+{
+    "Serie A": {
+        "teams": {
+            "Inter": {
+                "total_xg": 44.17389976978302,
+                "total_xga": 17.33940002322197,
+                "matches": 22
+            },
+            "Juventus": {
+                "total_xg": 37.078399896621704,
+                "total_xga": 17.419299952685833,
+                "matches": 22
+            },
+            "Como": {
+                "total_xg": 32.84569990634918,
+                "total_xga": 21.260399997234344,
+                "matches": 22
+            },
+            "Atalanta": {
+                "total_xg": 34.34070011973381,
+                "total_xga": 22.146600037813187,
+                "matches": 22
+            },
+            "Milan": {
+                "total_xg": 36.05770015716553,
+                "total_xga": 26.219799995422363,
+                "matches": 22
+            },
+            "Napoli": {
+                "total_xg": 30.766699954867363,
+                "total_xga": 22.960399940609932,
+                "matches": 22
+            },
+            "Roma": {
+                "total_xg": 30.492100089788437,
+                "total_xga": 24.33629995584488,
+                "matches": 22
+            },
+            "Fiorentina": {
+                "total_xg": 34.32489976286888,
+                "total_xga": 31.320599853992462,
+                "matches": 22
+            },
+            "Bologna": {
+                "total_xg": 27.36309987306595,
+                "total_xga": 27.55129996687174,
+                "matches": 22
+            },
+            "Genoa": {
+                "total_xg": 26.497399747371674,
+                "total_xga": 26.45549999549985,
+                "matches": 22
+            },
+            "Hellas Verona": {
+                "total_xg": 22.149100229144096,
+                "total_xga": 26.335999831557274,
+                "matches": 21
+            },
+            "Udinese": {
+                "total_xg": 23.402999877929688,
+                "total_xga": 29.04349958896637,
+                "matches": 21
+            },
+            "Torino": {
+                "total_xg": 24.515999883413315,
+                "total_xga": 32.9353998452425,
+                "matches": 22
+            },
+            "Pisa": {
+                "total_xg": 24.00210016220808,
+                "total_xga": 35.713600277900696,
+                "matches": 22
+            },
+            "Sassuolo": {
+                "total_xg": 22.088799819350243,
+                "total_xga": 31.263000190258026,
+                "matches": 22
+            },
+            "Parma": {
+                "total_xg": 20.707300040870905,
+                "total_xga": 31.33769979327917,
+                "matches": 22
+            },
+            "Lazio": {
+                "total_xg": 22.206099808216095,
+                "total_xga": 28.802599906921387,
+                "matches": 22
+            },
+            "Cremonese": {
+                "total_xg": 21.8051001355052,
+                "total_xga": 34.727699995040894,
+                "matches": 22
+            },
+            "Cagliari": {
+                "total_xg": 20.531700171530247,
+                "total_xga": 33.543700128793716,
+                "matches": 22
+            },
+            "Lecce": {
+                "total_xg": 16.696899995207787,
+                "total_xga": 31.33390012383461,
+                "matches": 22
+            }
+        },
+        "avg_xg": 1.260380592239706,
+        "avg_xga": 1.260380592239706,
+        "last_updated": "2026-01-26T16:42:44.159632"
+    },
+    "Premier League": {
+        "teams": {
+            "Arsenal": {
+                "total_xg": 40.463900208473206,
+                "total_xga": 16.271700158715248,
+                "matches": 23
+            },
+            "Manchester City": {
+                "total_xg": 41.553699642419815,
+                "total_xga": 26.009199917316437,
+                "matches": 23
+            },
+            "Manchester United": {
+                "total_xg": 41.31949996948242,
+                "total_xga": 28.617200031876564,
+                "matches": 23
+            },
+            "Liverpool": {
+                "total_xg": 36.403899908065796,
+                "total_xga": 26.512600138783455,
+                "matches": 23
+            },
+            "Newcastle United": {
+                "total_xg": 34.81079961359501,
+                "total_xga": 25.186199858784676,
+                "matches": 23
+            },
+            "Chelsea": {
+                "total_xg": 41.04679986834526,
+                "total_xga": 32.906999833881855,
+                "matches": 23
+            },
+            "Brentford": {
+                "total_xg": 38.078300416469574,
+                "total_xga": 30.995200246572495,
+                "matches": 23
+            },
+            "AFC Bournemouth": {
+                "total_xg": 36.57550033926964,
+                "total_xga": 33.44090011715889,
+                "matches": 23
+            },
+            "Crystal Palace": {
+                "total_xg": 36.06460005044937,
+                "total_xga": 31.67080020904541,
+                "matches": 23
+            },
+            "Brighton & Hove Albion": {
+                "total_xg": 36.180399626493454,
+                "total_xga": 33.141699731349945,
+                "matches": 23
+            },
+            "Leeds United": {
+                "total_xg": 31.961999908089638,
+                "total_xga": 31.868000000715256,
+                "matches": 22
+            },
+            "Tottenham Hotspur": {
+                "total_xg": 23.96570009738207,
+                "total_xga": 31.254999846220016,
+                "matches": 23
+            },
+            "Aston Villa": {
+                "total_xg": 28.297300174832344,
+                "total_xga": 33.49040016531944,
+                "matches": 23
+            },
+            "Nottingham Forest": {
+                "total_xg": 26.183299779891968,
+                "total_xga": 33.81259998679161,
+                "matches": 23
+            },
+            "Fulham": {
+                "total_xg": 25.697100192308426,
+                "total_xga": 32.37199975550175,
+                "matches": 23
+            },
+            "Wolverhampton Wanderers": {
+                "total_xg": 20.605500161647797,
+                "total_xga": 31.223399966955185,
+                "matches": 23
+            },
+            "Everton": {
+                "total_xg": 24.13880017399788,
+                "total_xga": 32.19700002670288,
+                "matches": 22
+            },
+            "West Ham United": {
+                "total_xg": 25.842900067567825,
+                "total_xga": 38.417700111866,
+                "matches": 23
+            },
+            "Sunderland": {
+                "total_xg": 20.828599870204926,
+                "total_xga": 33.4167001247406,
+                "matches": 23
+            },
+            "Burnley": {
+                "total_xg": 19.952399879693985,
+                "total_xga": 47.16569972038269,
+                "matches": 23
+            }
+        },
+        "avg_xg": 1.37548253263904,
+        "avg_xga": 1.37548253263904,
+        "last_updated": "2026-01-26T16:42:42.388727"
+    },
+    "La Liga": {
+        "teams": {
+            "Real Madrid": {
+                "total_xg": 49.798299908638,
+                "total_xga": 22.932199984788895,
+                "matches": 21
+            },
+            "Barcelona": {
+                "total_xg": 49.73430025577545,
+                "total_xga": 26.867800131440163,
+                "matches": 21
+            },
+            "Atletico Madrid": {
+                "total_xg": 34.057799994945526,
+                "total_xga": 24.075000077486038,
+                "matches": 21
+            },
+            "Villarreal": {
+                "total_xg": 31.86100023984909,
+                "total_xga": 24.198599621653557,
+                "matches": 20
+            },
+            "Athletic Club": {
+                "total_xg": 29.776600122451782,
+                "total_xga": 23.933999739587307,
+                "matches": 21
+            },
+            "Real Betis": {
+                "total_xg": 32.40859994292259,
+                "total_xga": 26.28029975295067,
+                "matches": 21
+            },
+            "Espanyol": {
+                "total_xg": 30.495600134134293,
+                "total_xga": 26.473399683833122,
+                "matches": 21
+            },
+            "Celta Vigo": {
+                "total_xg": 28.132900178432465,
+                "total_xga": 28.134500175714493,
+                "matches": 21
+            },
+            "Rayo Vallecano": {
+                "total_xg": 28.55430018901825,
+                "total_xga": 27.251000106334686,
+                "matches": 21
+            },
+            "Valencia": {
+                "total_xg": 25.46419970691204,
+                "total_xga": 27.208800613880157,
+                "matches": 21
+            },
+            "Real Sociedad": {
+                "total_xg": 28.482100009918213,
+                "total_xga": 29.39290003478527,
+                "matches": 21
+            },
+            "Osasuna": {
+                "total_xg": 24.060500353574753,
+                "total_xga": 27.290999829769135,
+                "matches": 21
+            },
+            "Deportivo Alaves": {
+                "total_xg": 23.242399714887142,
+                "total_xga": 26.064900189638138,
+                "matches": 21
+            },
+            "Levante": {
+                "total_xg": 26.832900136709213,
+                "total_xga": 34.23490011692047,
+                "matches": 20
+            },
+            "Elche": {
+                "total_xg": 23.46420009434223,
+                "total_xga": 33.48949956893921,
+                "matches": 21
+            },
+            "Sevilla": {
+                "total_xg": 24.889500066637993,
+                "total_xga": 34.70820015668869,
+                "matches": 21
+            },
+            "Girona": {
+                "total_xg": 22.522100150585175,
+                "total_xga": 33.77110028266907,
+                "matches": 20
+            },
+            "Getafe": {
+                "total_xg": 13.76269993185997,
+                "total_xga": 21.526700109243393,
+                "matches": 20
+            },
+            "Mallorca": {
+                "total_xg": 22.44819976389408,
+                "total_xga": 34.97150018811226,
+                "matches": 21
+            },
+            "Real Oviedo": {
+                "total_xg": 19.6630999147892,
+                "total_xga": 36.84500044584274,
+                "matches": 21
+            }
+        },
+        "avg_xg": 1.3693540884862438,
+        "avg_xga": 1.3693540884862438,
+        "last_updated": "2026-01-26T16:42:43.064241"
+    },
+    "Bundesliga": {
+        "teams": {
+            "Bayern M\u00fcnchen": {
+                "total_xg": 55.25319957733154,
+                "total_xga": 16.048399940133095,
+                "matches": 19
+            },
+            "Borussia Dortmund": {
+                "total_xg": 32.54300004243851,
+                "total_xga": 18.66950014233589,
+                "matches": 19
+            },
+            "Bayer Leverkusen": {
+                "total_xg": 32.495600178837776,
+                "total_xga": 22.049100019037724,
+                "matches": 18
+            },
+            "VfB Stuttgart": {
+                "total_xg": 30.97459989786148,
+                "total_xga": 26.277599930763245,
+                "matches": 19
+            },
+            "RB Leipzig": {
+                "total_xg": 34.74779969453812,
+                "total_xga": 26.553599879145622,
+                "matches": 18
+            },
+            "Freiburg": {
+                "total_xg": 31.554000005126,
+                "total_xga": 25.914000153541565,
+                "matches": 19
+            },
+            "Hoffenheim": {
+                "total_xg": 29.192799627780914,
+                "total_xga": 24.9822998046875,
+                "matches": 18
+            },
+            "Union Berlin": {
+                "total_xg": 25.338299870491028,
+                "total_xga": 25.755099892616272,
+                "matches": 19
+            },
+            "Eintracht Frankfurt": {
+                "total_xg": 26.118400007486343,
+                "total_xga": 27.837800070643425,
+                "matches": 19
+            },
+            "Borussia M\u00f6nchengladbach": {
+                "total_xg": 25.315099895000458,
+                "total_xga": 29.93259957432747,
+                "matches": 19
+            },
+            "1. FC K\u00f6ln": {
+                "total_xg": 27.708399951457977,
+                "total_xga": 30.949799597263336,
+                "matches": 19
+            },
+            "Mainz 05": {
+                "total_xg": 25.303299859166145,
+                "total_xga": 36.239599734544754,
+                "matches": 19
+            },
+            "Hamburger SV": {
+                "total_xg": 20.643399983644485,
+                "total_xga": 26.020600110292435,
+                "matches": 18
+            },
+            "Wolfsburg": {
+                "total_xg": 25.478099822998047,
+                "total_xga": 34.8418003320694,
+                "matches": 19
+            },
+            "FC Heidenheim": {
+                "total_xg": 24.031500108540058,
+                "total_xga": 35.863599836826324,
+                "matches": 19
+            },
+            "Werder Bremen": {
+                "total_xg": 21.099699944257736,
+                "total_xga": 32.29650002717972,
+                "matches": 18
+            },
+            "Augsburg": {
+                "total_xg": 20.917599856853485,
+                "total_xga": 33.71679949760437,
+                "matches": 19
+            },
+            "St. Pauli": {
+                "total_xg": 14.289099961519241,
+                "total_xga": 29.0551997423172,
+                "matches": 18
+            }
+        },
+        "avg_xg": 1.49703541156348,
+        "avg_xga": 1.49703541156348,
+        "last_updated": "2026-01-26T16:02:31.905616"
+    },
+    "Ligue 1": {
+        "teams": {
+            "Paris Saint-Germain": {
+                "total_xg": 35.050200045108795,
+                "total_xga": 16.475099876523018,
+                "matches": 19
+            },
+            "Marseille": {
+                "total_xg": 35.17379993200302,
+                "total_xga": 23.184900000691414,
+                "matches": 19
+            },
+            "Lens": {
+                "total_xg": 35.80129963159561,
+                "total_xga": 25.27879971265793,
+                "matches": 19
+            },
+            "Lyon": {
+                "total_xg": 32.52669961750507,
+                "total_xga": 22.83590018749237,
+                "matches": 19
+            },
+            "Lille": {
+                "total_xg": 33.48320031166077,
+                "total_xga": 28.46290010213852,
+                "matches": 19
+            },
+            "Brest": {
+                "total_xg": 27.787599802017212,
+                "total_xga": 27.104700028896332,
+                "matches": 19
+            },
+            "Strasbourg": {
+                "total_xg": 30.868400152772665,
+                "total_xga": 24.402499705553055,
+                "matches": 19
+            },
+            "Rennes": {
+                "total_xg": 29.905299805104733,
+                "total_xga": 28.21920019388199,
+                "matches": 19
+            },
+            "Monaco": {
+                "total_xg": 33.562899976968765,
+                "total_xga": 30.534100025892258,
+                "matches": 19
+            },
+            "Toulouse": {
+                "total_xg": 26.377300024032593,
+                "total_xga": 24.7044002301991,
+                "matches": 19
+            },
+            "Lorient": {
+                "total_xg": 26.721500113606453,
+                "total_xga": 25.296000011265278,
+                "matches": 19
+            },
+            "Le Havre": {
+                "total_xg": 22.3574997484684,
+                "total_xga": 26.560799598693848,
+                "matches": 19
+            },
+            "Paris FC": {
+                "total_xg": 24.01660031080246,
+                "total_xga": 29.854799836874008,
+                "matches": 19
+            },
+            "Auxerre": {
+                "total_xg": 21.593100011348724,
+                "total_xga": 29.136799782514572,
+                "matches": 19
+            },
+            "Nice": {
+                "total_xg": 24.009300023317337,
+                "total_xga": 34.751000106334686,
+                "matches": 19
+            },
+            "Angers": {
+                "total_xg": 18.3843000382185,
+                "total_xga": 32.33800023794174,
+                "matches": 19
+            },
+            "Nantes": {
+                "total_xg": 18.33930015563965,
+                "total_xga": 31.07779997587204,
+                "matches": 19
+            },
+            "Metz": {
+                "total_xg": 20.953799806535244,
+                "total_xga": 36.694399893283844,
+                "matches": 19
+            }
+        },
+        "avg_xg": 1.452959355282766,
+        "avg_xga": 1.452959355282766,
+        "last_updated": "2026-01-26T16:02:32.540411"
+    },
+    "Eredivisie": {
+        "teams": {
+            "FC Twente": {
+                "total_xg": 40.927600026130676,
+                "total_xga": 20.206700265407562,
+                "matches": 20
+            },
+            "PSV Eindhoven": {
+                "total_xg": 42.23760014772415,
+                "total_xga": 23.213500156998634,
+                "matches": 20
+            },
+            "Feyenoord": {
+                "total_xg": 42.956500470638275,
+                "total_xga": 23.278400123119354,
+                "matches": 20
+            },
+            "FC Groningen": {
+                "total_xg": 38.08889991044998,
+                "total_xga": 24.5790998339653,
+                "matches": 20
+            },
+            "AZ Alkmaar": {
+                "total_xg": 40.40989929437637,
+                "total_xga": 26.976199835538864,
+                "matches": 20
+            },
+            "SC Heerenveen": {
+                "total_xg": 35.76899969577789,
+                "total_xga": 23.8094000518322,
+                "matches": 19
+            },
+            "Ajax": {
+                "total_xg": 35.244400203228,
+                "total_xga": 29.00129996240139,
+                "matches": 20
+            },
+            "NEC Nijmegen": {
+                "total_xg": 36.124199986457825,
+                "total_xga": 29.57330012321472,
+                "matches": 19
+            },
+            "FC Utrecht": {
+                "total_xg": 25.777399867773056,
+                "total_xga": 26.699399888515472,
+                "matches": 19
+            },
+            "Sparta Rotterdam": {
+                "total_xg": 29.396300196647644,
+                "total_xga": 33.109099984169006,
+                "matches": 20
+            },
+            "NAC Breda": {
+                "total_xg": 25.70750018954277,
+                "total_xga": 34.146499782800674,
+                "matches": 20
+            },
+            "Telstar": {
+                "total_xg": 29.26989984512329,
+                "total_xga": 37.683399856090546,
+                "matches": 20
+            },
+            "Fortuna Sittard": {
+                "total_xg": 24.2324997484684,
+                "total_xga": 36.10799992084503,
+                "matches": 20
+            },
+            "Go Ahead Eagles": {
+                "total_xg": 24.633800148963928,
+                "total_xga": 36.48259982466698,
+                "matches": 19
+            },
+            "PEC Zwolle": {
+                "total_xg": 22.225100234150887,
+                "total_xga": 38.09070003032684,
+                "matches": 20
+            },
+            "Excelsior": {
+                "total_xg": 26.740499913692474,
+                "total_xga": 40.62459993362427,
+                "matches": 20
+            },
+            "Heracles": {
+                "total_xg": 25.341399982571602,
+                "total_xga": 41.078000009059906,
+                "matches": 20
+            },
+            "FC Volendam": {
+                "total_xg": 19.43620002269745,
+                "total_xga": 39.85850030183792,
+                "matches": 20
+            }
+        },
+        "avg_xg": 1.5857266850685805,
+        "avg_xga": 1.5857266850685805,
+        "last_updated": "2026-01-26T16:02:32.974118"
+    },
+    "Championship": {
+        "teams": {
+            "Ipswich Town": {
+                "total_xg": 47.88289964199066,
+                "total_xga": 24.994099993258715,
+                "matches": 28
+            },
+            "Coventry City": {
+                "total_xg": 53.684800177812576,
+                "total_xga": 30.663699939846992,
+                "matches": 28
+            },
+            "Birmingham City": {
+                "total_xg": 44.31089995801449,
+                "total_xga": 30.673500075936317,
+                "matches": 29
+            },
+            "Middlesbrough": {
+                "total_xg": 37.245199769735336,
+                "total_xga": 27.06519976258278,
+                "matches": 29
+            },
+            "Southampton": {
+                "total_xg": 49.64460003376007,
+                "total_xga": 38.820500269532204,
+                "matches": 29
+            },
+            "Sheffield United": {
+                "total_xg": 45.112000435590744,
+                "total_xga": 34.009000316262245,
+                "matches": 28
+            },
+            "West Bromwich Albion": {
+                "total_xg": 36.191899836063385,
+                "total_xga": 30.363500118255615,
+                "matches": 29
+            },
+            "Watford": {
+                "total_xg": 36.456699818372726,
+                "total_xga": 28.965900242328644,
+                "matches": 28
+            },
+            "Blackburn Rovers": {
+                "total_xg": 36.65640014410019,
+                "total_xga": 32.19030001759529,
+                "matches": 28
+            },
+            "Millwall": {
+                "total_xg": 39.63879954814911,
+                "total_xga": 34.858300015330315,
+                "matches": 29
+            },
+            "Queens Park Rangers": {
+                "total_xg": 34.31160016357899,
+                "total_xga": 32.663699708878994,
+                "matches": 29
+            },
+            "Bristol City": {
+                "total_xg": 37.80850005149841,
+                "total_xga": 36.394599825143814,
+                "matches": 29
+            },
+            "Wrexham": {
+                "total_xg": 35.778500366955996,
+                "total_xga": 40.73030026257038,
+                "matches": 29
+            },
+            "Stoke City": {
+                "total_xg": 30.35320010781288,
+                "total_xga": 35.80270051956177,
+                "matches": 29
+            },
+            "Derby County": {
+                "total_xg": 30.27169981598854,
+                "total_xga": 36.047000251710415,
+                "matches": 29
+            },
+            "Preston North End": {
+                "total_xg": 32.65170010924339,
+                "total_xga": 39.82520009577274,
+                "matches": 29
+            },
+            "Swansea City": {
+                "total_xg": 27.56270009279251,
+                "total_xga": 34.893499702215195,
+                "matches": 29
+            },
+            "Oxford United": {
+                "total_xg": 29.84690012037754,
+                "total_xga": 34.99119985103607,
+                "matches": 28
+            },
+            "Portsmouth": {
+                "total_xg": 28.567400105297565,
+                "total_xga": 34.91809996962547,
+                "matches": 27
+            },
+            "Norwich City": {
+                "total_xg": 35.43640011548996,
+                "total_xga": 44.9583999812603,
+                "matches": 28
+            },
+            "Charlton Athletic": {
+                "total_xg": 26.739300087094307,
+                "total_xga": 39.880199797451496,
+                "matches": 28
+            },
+            "Leicester City": {
+                "total_xg": 31.440899953246117,
+                "total_xga": 42.536900013685226,
+                "matches": 29
+            },
+            "Hull City": {
+                "total_xg": 37.90579995512962,
+                "total_xga": 51.2146001458168,
+                "matches": 28
+            },
+            "Sheffield Wednesday": {
+                "total_xg": 25.671200141310692,
+                "total_xga": 53.709599673748016,
+                "matches": 28
+            }
+        },
+        "avg_xg": 1.2736403516804178,
+        "avg_xga": 1.2736403516804178,
+        "last_updated": "2026-01-26T16:02:34.004620"
+    },
+    "Primeira Liga": {
+        "teams": {
+            "Sporting CP": {
+                "total_xg": 41.49629998207092,
+                "total_xga": 11.749900184571743,
+                "matches": 19
+            },
+            "FC Porto": {
+                "total_xg": 33.49480003118515,
+                "total_xga": 9.69829998165369,
+                "matches": 18
+            },
+            "Benfica": {
+                "total_xg": 35.84619981050491,
+                "total_xga": 13.344200178980827,
+                "matches": 19
+            },
+            "Braga": {
+                "total_xg": 36.35330027341843,
+                "total_xga": 20.23770011216402,
+                "matches": 19
+            },
+            "Famalicao": {
+                "total_xg": 26.62830002605915,
+                "total_xga": 20.595699705183506,
+                "matches": 19
+            },
+            "Gil Vicente": {
+                "total_xg": 22.89609983563423,
+                "total_xga": 17.62550000846386,
+                "matches": 18
+            },
+            "Santa Clara": {
+                "total_xg": 20.9205002784729,
+                "total_xga": 19.172000020742416,
+                "matches": 19
+            },
+            "Alverca": {
+                "total_xg": 23.554699674248695,
+                "total_xga": 27.614500001072884,
+                "matches": 19
+            },
+            "Estoril": {
+                "total_xg": 26.853800043463707,
+                "total_xga": 30.43229991197586,
+                "matches": 19
+            },
+            "Moreirense": {
+                "total_xg": 21.273600101470947,
+                "total_xga": 27.475899815559387,
+                "matches": 19
+            },
+            "Vitoria de Guimaraes": {
+                "total_xg": 21.137200087308884,
+                "total_xga": 26.155900061130524,
+                "matches": 19
+            },
+            "Tondela": {
+                "total_xg": 24.167200036346912,
+                "total_xga": 29.19370001554489,
+                "matches": 19
+            },
+            "Nacional": {
+                "total_xg": 25.188299976289272,
+                "total_xga": 31.31780007481575,
+                "matches": 19
+            },
+            "Estrela da Amadora": {
+                "total_xg": 22.431799948215485,
+                "total_xga": 31.536000072956085,
+                "matches": 19
+            },
+            "Rio Ave": {
+                "total_xg": 18.971999935805798,
+                "total_xga": 33.418699741363525,
+                "matches": 19
+            },
+            "Arouca": {
+                "total_xg": 14.599700056016445,
+                "total_xga": 31.98159997165203,
+                "matches": 19
+            },
+            "AVS Futebol SAD": {
+                "total_xg": 18.64329992234707,
+                "total_xga": 34.69679981470108,
+                "matches": 19
+            },
+            "Casa Pia AC": {
+                "total_xg": 16.26609992980957,
+                "total_xga": 34.4767002761364,
+                "matches": 19
+            }
+        },
+        "avg_xg": 1.3256564704372602,
+        "avg_xga": 1.3256564704372602,
+        "last_updated": "2026-01-26T16:42:43.543096"
+    },
+    "Belgian Pro League": {
+        "teams": {
+            "Union St.Gilloise": {
+                "total_xg": 42.104300022125244,
+                "total_xga": 19.056099966168404,
+                "matches": 22
+            },
+            "St.Truiden": {
+                "total_xg": 41.424300134181976,
+                "total_xga": 27.495400100946426,
+                "matches": 22
+            },
+            "Club Brugge": {
+                "total_xg": 37.944400161504745,
+                "total_xga": 28.265799805521965,
+                "matches": 22
+            },
+            "Anderlecht": {
+                "total_xg": 34.72729995846748,
+                "total_xga": 31.568599969148636,
+                "matches": 22
+            },
+            "Westerlo": {
+                "total_xg": 36.07139986753464,
+                "total_xga": 33.32570022344589,
+                "matches": 22
+            },
+            "Genk": {
+                "total_xg": 31.867299914360046,
+                "total_xga": 29.47770032286644,
+                "matches": 22
+            },
+            "Sporting Charleroi": {
+                "total_xg": 26.806300222873688,
+                "total_xga": 23.461800128221512,
+                "matches": 22
+            },
+            "Cercle Brugge": {
+                "total_xg": 34.563700288534164,
+                "total_xga": 32.980300188064575,
+                "matches": 22
+            },
+            "Gent": {
+                "total_xg": 32.73949998617172,
+                "total_xga": 35.960200399160385,
+                "matches": 22
+            },
+            "Royal Antwerp": {
+                "total_xg": 26.409800171852112,
+                "total_xga": 29.786299914121628,
+                "matches": 22
+            },
+            "OH Leuven": {
+                "total_xg": 24.961900174617767,
+                "total_xga": 32.93719966709614,
+                "matches": 22
+            },
+            "Zulte Waregem": {
+                "total_xg": 27.077299788594246,
+                "total_xga": 34.59969973564148,
+                "matches": 22
+            },
+            "KV Mechelen": {
+                "total_xg": 27.979200273752213,
+                "total_xga": 35.69970041513443,
+                "matches": 22
+            },
+            "RAAL La Louviere": {
+                "total_xg": 21.39779983460903,
+                "total_xga": 28.848100006580353,
+                "matches": 22
+            },
+            "FCV Dender EH": {
+                "total_xg": 26.141499936580658,
+                "total_xga": 36.536900132894516,
+                "matches": 22
+            },
+            "Standard Liege": {
+                "total_xg": 21.070300057530403,
+                "total_xga": 33.28679981827736,
+                "matches": 22
+            }
+        },
+        "avg_xg": 1.4013815363445743,
+        "avg_xga": 1.4013815363445743,
+        "last_updated": "2026-01-26T16:02:36.121168"
+    },
+    "Super Lig": {
+        "teams": {
+            "Fenerbah\u00e7e": {
+                "total_xg": 39.494500160217285,
+                "total_xga": 14.99729997292161,
+                "matches": 19
+            },
+            "Galatasaray": {
+                "total_xg": 39.890200436115265,
+                "total_xga": 19.133099921047688,
+                "matches": 19
+            },
+            "Be\u015fikta\u015f": {
+                "total_xg": 35.40959972143173,
+                "total_xga": 18.962100088596344,
+                "matches": 18
+            },
+            "Samsunspor": {
+                "total_xg": 26.25140020251274,
+                "total_xga": 17.304800245910883,
+                "matches": 19
+            },
+            "G\u00f6ztepe": {
+                "total_xg": 23.736700028181076,
+                "total_xga": 20.880500078201294,
+                "matches": 19
+            },
+            "Ba\u015fak\u015fehir": {
+                "total_xg": 26.91009981930256,
+                "total_xga": 24.36910030245781,
+                "matches": 19
+            },
+            "Trabzonspor": {
+                "total_xg": 28.573300186544657,
+                "total_xga": 27.463199958205223,
+                "matches": 19
+            },
+            "Kocaelispor": {
+                "total_xg": 17.3999000787735,
+                "total_xga": 17.297599971294403,
+                "matches": 19
+            },
+            "Rizespor": {
+                "total_xg": 26.127799689769745,
+                "total_xga": 25.5379998087883,
+                "matches": 19
+            },
+            "Gaziantep FK": {
+                "total_xg": 27.210399627685547,
+                "total_xga": 30.92490044236183,
+                "matches": 19
+            },
+            "Alanyaspor": {
+                "total_xg": 20.965500056743622,
+                "total_xga": 24.154399782419205,
+                "matches": 19
+            },
+            "Konyaspor": {
+                "total_xg": 23.994300067424774,
+                "total_xga": 28.84909999370575,
+                "matches": 19
+            },
+            "Ey\u00fcpspor": {
+                "total_xg": 21.720000091940165,
+                "total_xga": 28.159999698400497,
+                "matches": 18
+            },
+            "Gen\u00e7lerbirli\u011fi": {
+                "total_xg": 20.58920006453991,
+                "total_xga": 29.2853000164032,
+                "matches": 19
+            },
+            "Kas\u0131mpa\u015fa": {
+                "total_xg": 15.733799822628498,
+                "total_xga": 27.090199649333954,
+                "matches": 19
+            },
+            "Kayserispor": {
+                "total_xg": 18.83519998192787,
+                "total_xga": 31.60289967060089,
+                "matches": 19
+            },
+            "Antalyaspor": {
+                "total_xg": 14.84079995751381,
+                "total_xga": 26.785100162029266,
+                "matches": 19
+            },
+            "Fatih Karag\u00fcmr\u00fck": {
+                "total_xg": 17.64369997382164,
+                "total_xga": 32.52880020439625,
+                "matches": 19
+            }
+        },
+        "avg_xg": 1.3097835293149247,
+        "avg_xga": 1.3097835293149247,
+        "last_updated": "2026-01-26T16:42:41.556240"
+    },
+    "Scottish Premiership": {
+        "teams": {
+            "Celtic": {
+                "total_xg": 50.345400139689445,
+                "total_xga": 21.96060010790825,
+                "matches": 23
+            },
+            "Rangers": {
+                "total_xg": 39.517099499702454,
+                "total_xga": 24.02269995957613,
+                "matches": 23
+            },
+            "Hearts": {
+                "total_xg": 37.44170007109642,
+                "total_xga": 22.597200103104115,
+                "matches": 23
+            },
+            "Hibernian": {
+                "total_xg": 38.186400294303894,
+                "total_xga": 27.839300006628036,
+                "matches": 23
+            },
+            "Motherwell": {
+                "total_xg": 34.26119968295097,
+                "total_xga": 26.619799628853798,
+                "matches": 23
+            },
+            "Falkirk": {
+                "total_xg": 28.889899991452694,
+                "total_xga": 29.89010000228882,
+                "matches": 23
+            },
+            "Aberdeen": {
+                "total_xg": 29.63329979777336,
+                "total_xga": 34.08289992809296,
+                "matches": 23
+            },
+            "St. Mirren": {
+                "total_xg": 24.994700103998184,
+                "total_xga": 29.81859999895096,
+                "matches": 22
+            },
+            "Dundee United": {
+                "total_xg": 27.47730028629303,
+                "total_xga": 37.06789966672659,
+                "matches": 22
+            },
+            "Kilmarnock": {
+                "total_xg": 24.702400028705597,
+                "total_xga": 42.97640025615692,
+                "matches": 23
+            },
+            "Livingston": {
+                "total_xg": 24.187899813055992,
+                "total_xga": 44.44900020956993,
+                "matches": 23
+            },
+            "Dundee FC": {
+                "total_xg": 18.55380004644394,
+                "total_xga": 36.86659988760948,
+                "matches": 23
+            }
+        },
+        "avg_xg": 1.380259488158635,
+        "avg_xga": 1.380259488158635,
+        "last_updated": "2026-01-26T16:02:38.266042"
+    },
+    "Austrian Bundesliga": {
+        "teams": {
+            "Salzburg": {
+                "total_xg": 34.21640062332153,
+                "total_xga": 24.05370008945465,
+                "matches": 17
+            },
+            "Ried": {
+                "total_xg": 27.200200140476227,
+                "total_xga": 21.76820021122694,
+                "matches": 17
+            },
+            "Rapid Wien": {
+                "total_xg": 28.70479992032051,
+                "total_xga": 23.975499898195267,
+                "matches": 17
+            },
+            "Sturm Graz": {
+                "total_xg": 28.511799931526184,
+                "total_xga": 24.875900089740753,
+                "matches": 17
+            },
+            "LASK": {
+                "total_xg": 27.158799827098846,
+                "total_xga": 26.327400043606758,
+                "matches": 17
+            },
+            "WSG Tirol": {
+                "total_xg": 23.72559978067875,
+                "total_xga": 23.75469997525215,
+                "matches": 17
+            },
+            "Hartberg": {
+                "total_xg": 24.09120002388954,
+                "total_xga": 25.417200088500977,
+                "matches": 17
+            },
+            "Austria Wien": {
+                "total_xg": 22.173999935388565,
+                "total_xga": 22.906200125813484,
+                "matches": 17
+            },
+            "Altach": {
+                "total_xg": 21.955299995839596,
+                "total_xga": 24.195899665355682,
+                "matches": 17
+            },
+            "Wolfsberger AC": {
+                "total_xg": 21.14579999446869,
+                "total_xga": 27.118199914693832,
+                "matches": 17
+            },
+            "Grazer AK": {
+                "total_xg": 18.451400071382523,
+                "total_xga": 22.987700045108795,
+                "matches": 17
+            },
+            "BW Linz": {
+                "total_xg": 16.707200065255165,
+                "total_xga": 26.66190016269684,
+                "matches": 17
+            }
+        },
+        "avg_xg": 1.4413848054394418,
+        "avg_xga": 1.4413848054394418,
+        "last_updated": "2026-01-26T16:02:37.426597"
+    },
+    "Swiss Super League": {
+        "teams": {
+            "Basel": {
+                "total_xg": 43.971099734306335,
+                "total_xga": 32.07839956879616,
+                "matches": 21
+            },
+            "Thun": {
+                "total_xg": 42.12869989871979,
+                "total_xga": 32.52470004558563,
+                "matches": 21
+            },
+            "Lugano": {
+                "total_xg": 33.871800035238266,
+                "total_xga": 27.99540004134178,
+                "matches": 21
+            },
+            "Lausanne": {
+                "total_xg": 35.95379975438118,
+                "total_xga": 29.869999825954437,
+                "matches": 21
+            },
+            "Servette": {
+                "total_xg": 31.71499988436699,
+                "total_xga": 28.624200105667114,
+                "matches": 21
+            },
+            "Sion": {
+                "total_xg": 31.786199867725372,
+                "total_xga": 29.27770021557808,
+                "matches": 21
+            },
+            "St. Gallen": {
+                "total_xg": 36.379100024700165,
+                "total_xga": 32.786399722099304,
+                "matches": 20
+            },
+            "Luzern": {
+                "total_xg": 34.27239969372749,
+                "total_xga": 32.3152996301651,
+                "matches": 21
+            },
+            "Young Boys": {
+                "total_xg": 36.305000334978104,
+                "total_xga": 39.8802999779582,
+                "matches": 21
+            },
+            "FC Z\u00fcrich": {
+                "total_xg": 33.58539977669716,
+                "total_xga": 38.24729984998703,
+                "matches": 21
+            },
+            "Grasshopper": {
+                "total_xg": 28.153800070285797,
+                "total_xga": 41.74699965119362,
+                "matches": 21
+            },
+            "Winterthur": {
+                "total_xg": 21.510499708354473,
+                "total_xga": 44.28610014915466,
+                "matches": 20
+            }
+        },
+        "avg_xg": 1.6385311951339245,
+        "avg_xga": 1.6385311951339245,
+        "last_updated": "2026-01-26T16:02:37.863186"
+    },
+    "Danish Superliga": {
+        "teams": {
+            "AGF": {
+                "total_xg": 36.91600030660629,
+                "total_xga": 21.196000069379807,
+                "matches": 18
+            },
+            "FC K\u00f8benhavn": {
+                "total_xg": 33.303900480270386,
+                "total_xga": 21.01949968934059,
+                "matches": 18
+            },
+            "FC Midtjylland": {
+                "total_xg": 33.169400215148926,
+                "total_xga": 23.453900188207626,
+                "matches": 18
+            },
+            "Br\u00f8ndby IF": {
+                "total_xg": 29.583199679851532,
+                "total_xga": 23.822899997234344,
+                "matches": 18
+            },
+            "Viborg": {
+                "total_xg": 28.059399902820587,
+                "total_xga": 26.785899937152863,
+                "matches": 18
+            },
+            "OB": {
+                "total_xg": 27.2951999604702,
+                "total_xga": 27.124799966812134,
+                "matches": 18
+            },
+            "Nordsj\u00e6lland": {
+                "total_xg": 26.164499878883362,
+                "total_xga": 26.946200042963028,
+                "matches": 18
+            },
+            "Randers FC": {
+                "total_xg": 22.595699846744537,
+                "total_xga": 24.782500326633453,
+                "matches": 18
+            },
+            "S\u00f8nderjyske": {
+                "total_xg": 25.8296999335289,
+                "total_xga": 29.07940039038658,
+                "matches": 18
+            },
+            "Silkeborg": {
+                "total_xg": 21.53119993209839,
+                "total_xga": 31.21439990401268,
+                "matches": 18
+            },
+            "Vejle Boldklub": {
+                "total_xg": 17.512700080871582,
+                "total_xga": 28.103199869394302,
+                "matches": 18
+            },
+            "Fredericia": {
+                "total_xg": 18.97440004348755,
+                "total_xga": 37.40659987926483,
+                "matches": 18
+            }
+        },
+        "avg_xg": 1.4858115752813992,
+        "avg_xga": 1.4858115752813992,
+        "last_updated": "2026-01-26T16:02:38.716066"
+    },
+    "Polish Ekstraklasa": {
+        "teams": {
+            "Legia Warszawa": {
+                "total_xg": 26.11839997768402,
+                "total_xga": 17.9025000333786,
+                "matches": 18
+            },
+            "Korona Kielce": {
+                "total_xg": 28.341400042176247,
+                "total_xga": 22.828300058841705,
+                "matches": 18
+            },
+            "Lech Poznan": {
+                "total_xg": 28.345500230789185,
+                "total_xga": 21.323199957609177,
+                "matches": 17
+            },
+            "G\u00f3rnik Zabrze": {
+                "total_xg": 27.595800012350082,
+                "total_xga": 22.26639997959137,
+                "matches": 18
+            },
+            "Rak\u00f3w Cz\u0119stochowa": {
+                "total_xg": 26.581099778413773,
+                "total_xga": 22.456200033426285,
+                "matches": 18
+            },
+            "Cracovia": {
+                "total_xg": 23.487999856472015,
+                "total_xga": 19.340400084853172,
+                "matches": 18
+            },
+            "Pogo\u0144 Szczecin": {
+                "total_xg": 32.77660021185875,
+                "total_xga": 29.848499953746796,
+                "matches": 18
+            },
+            "Widzew \u0141\u00f3d\u017a": {
+                "total_xg": 25.03460031747818,
+                "total_xga": 23.648300111293793,
+                "matches": 18
+            },
+            "Lechia Gdansk": {
+                "total_xg": 27.50180011987686,
+                "total_xga": 26.249699890613556,
+                "matches": 18
+            },
+            "Radomiak Radom": {
+                "total_xg": 26.99699991941452,
+                "total_xga": 26.813800275325775,
+                "matches": 18
+            },
+            "Wis\u0142a P\u0142ock": {
+                "total_xg": 20.98229992389679,
+                "total_xga": 19.687299862504005,
+                "matches": 18
+            },
+            "Zag\u0142\u0119bie Lubin": {
+                "total_xg": 24.225699707865715,
+                "total_xga": 22.63949990272522,
+                "matches": 18
+            },
+            "Jagiellonia Bialystok": {
+                "total_xg": 24.162900000810623,
+                "total_xga": 27.9239000082016,
+                "matches": 17
+            },
+            "Motor Lublin": {
+                "total_xg": 23.2852001786232,
+                "total_xga": 29.37529993057251,
+                "matches": 18
+            },
+            "Termalica Nieciecza": {
+                "total_xg": 22.80669993162155,
+                "total_xga": 29.44060057401657,
+                "matches": 18
+            },
+            "Piast Gliwice": {
+                "total_xg": 19.20880028605461,
+                "total_xga": 25.24120008945465,
+                "matches": 17
+            },
+            "GKS Katowice": {
+                "total_xg": 21.121400147676468,
+                "total_xga": 26.52029973268509,
+                "matches": 17
+            },
+            "Arka Gdynia": {
+                "total_xg": 15.103499978780746,
+                "total_xga": 30.171300143003464,
+                "matches": 18
+            }
+        },
+        "avg_xg": 1.3864896894432603,
+        "avg_xga": 1.3864896894432603,
+        "last_updated": "2026-01-26T16:02:40.810198"
+    },
+    "Russian Premier League": {
+        "teams": {
+            "FC Krasnodar": {
+                "total_xg": 32.59649983048439,
+                "total_xga": 16.526400186121464,
+                "matches": 18
+            },
+            "Zenit St. Petersburg": {
+                "total_xg": 28.810100317001343,
+                "total_xga": 13.473800078034401,
+                "matches": 18
+            },
+            "Baltika": {
+                "total_xg": 27.323900282382965,
+                "total_xga": 18.09489993751049,
+                "matches": 18
+            },
+            "Lokomotiv Moscow": {
+                "total_xg": 34.503899812698364,
+                "total_xga": 26.19589990377426,
+                "matches": 18
+            },
+            "Spartak Moscow": {
+                "total_xg": 25.0120999366045,
+                "total_xga": 20.082100123167038,
+                "matches": 18
+            },
+            "Dinamo Moscow": {
+                "total_xg": 34.045100189745426,
+                "total_xga": 26.854700043797493,
+                "matches": 18
+            },
+            "CSKA Moscow": {
+                "total_xg": 29.461400091648102,
+                "total_xga": 25.97079974412918,
+                "matches": 18
+            },
+            "FC Rostov": {
+                "total_xg": 23.30199983716011,
+                "total_xga": 20.41739995032549,
+                "matches": 18
+            },
+            "Rubin Kazan": {
+                "total_xg": 22.295700043439865,
+                "total_xga": 20.732500046491623,
+                "matches": 18
+            },
+            "FK Akhmat": {
+                "total_xg": 25.078700125217438,
+                "total_xga": 24.115199893712997,
+                "matches": 18
+            },
+            "Dynamo Makhachkala": {
+                "total_xg": 16.55979996919632,
+                "total_xga": 19.16990014910698,
+                "matches": 18
+            },
+            "FC Orenburg": {
+                "total_xg": 19.678699910640717,
+                "total_xga": 27.690400391817093,
+                "matches": 18
+            },
+            "Akron Togliatti": {
+                "total_xg": 21.490900099277496,
+                "total_xga": 30.07890036702156,
+                "matches": 18
+            },
+            "Nizhny Novgorod": {
+                "total_xg": 19.46600017696619,
+                "total_xga": 29.587799847126007,
+                "matches": 18
+            },
+            "Krylya Sovetov Samara": {
+                "total_xg": 14.445000052452087,
+                "total_xga": 34.58270016312599,
+                "matches": 18
+            },
+            "PFC Sochi": {
+                "total_xg": 14.407000035047531,
+                "total_xga": 34.903399884700775,
+                "matches": 18
+            }
+        },
+        "avg_xg": 1.3488777802429266,
+        "avg_xga": 1.3488777802429266,
+        "last_updated": "2026-01-26T16:02:41.210744"
+    },
+    "Italian Serie B": {
+        "teams": {
+            "Venezia": {
+                "total_xg": 42.32200039923191,
+                "total_xga": 18.104999989271164,
+                "matches": 21
+            },
+            "Modena": {
+                "total_xg": 37.04389923810959,
+                "total_xga": 20.103800296783447,
+                "matches": 21
+            },
+            "Monza": {
+                "total_xg": 34.03610008955002,
+                "total_xga": 20.177300304174423,
+                "matches": 21
+            },
+            "Cesena": {
+                "total_xg": 35.06670010089874,
+                "total_xga": 23.646700233221054,
+                "matches": 21
+            },
+            "Palermo": {
+                "total_xg": 30.4598997682333,
+                "total_xga": 21.054499864578247,
+                "matches": 21
+            },
+            "Juve Stabia": {
+                "total_xg": 26.14389994740486,
+                "total_xga": 21.85179990530014,
+                "matches": 21
+            },
+            "Frosinone": {
+                "total_xg": 32.721800059080124,
+                "total_xga": 29.362899720668793,
+                "matches": 21
+            },
+            "Carrarese": {
+                "total_xg": 27.26929998397827,
+                "total_xga": 29.83219987154007,
+                "matches": 21
+            },
+            "Catanzaro": {
+                "total_xg": 25.61949971318245,
+                "total_xga": 27.2373004257679,
+                "matches": 21
+            },
+            "Sampdoria": {
+                "total_xg": 23.908099979162216,
+                "total_xga": 23.219599902629852,
+                "matches": 21
+            },
+            "Virtus Entella": {
+                "total_xg": 25.26710018515587,
+                "total_xga": 26.754999712109566,
+                "matches": 21
+            },
+            "Sudtirol": {
+                "total_xg": 21.02440007030964,
+                "total_xga": 24.70409992337227,
+                "matches": 21
+            },
+            "Mantova": {
+                "total_xg": 26.351400181651115,
+                "total_xga": 31.652800053358078,
+                "matches": 21
+            },
+            "Empoli": {
+                "total_xg": 25.007899805903435,
+                "total_xga": 29.90030001103878,
+                "matches": 21
+            },
+            "Bari": {
+                "total_xg": 22.433099895715714,
+                "total_xga": 28.921900063753128,
+                "matches": 21
+            },
+            "Spezia": {
+                "total_xg": 22.03520007431507,
+                "total_xga": 30.87739986181259,
+                "matches": 21
+            },
+            "Avellino": {
+                "total_xg": 22.01830020546913,
+                "total_xga": 29.105200052261353,
+                "matches": 21
+            },
+            "Padova": {
+                "total_xg": 21.75280013680458,
+                "total_xga": 31.525900036096573,
+                "matches": 21
+            },
+            "Reggiana": {
+                "total_xg": 20.986800014972687,
+                "total_xga": 33.65069976449013,
+                "matches": 21
+            },
+            "Pescara": {
+                "total_xg": 21.585300117731094,
+                "total_xga": 41.36909997463226,
+                "matches": 21
+            }
+        },
+        "avg_xg": 1.2929845237306186,
+        "avg_xga": 1.2929845237306186,
+        "last_updated": "2026-01-26T16:02:43.829567"
+    }
+}
