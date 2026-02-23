@@ -525,6 +525,7 @@ def place_bets(state: dict, value_bets: list, history: MatchHistory = None):
             'date': today,
             'match': bet['match'],
             'league': bet['league'],
+            'time': bet.get('time', ''),
             'tip': bet['tip'],
             'market': bet.get('market', '1X2'),
             'odds': bet['odds'],
@@ -719,7 +720,8 @@ def main():
     
     # Update state
     state['current_state']['last_run'] = today
-    state['current_state']['day'] += 1
+    start = datetime.strptime(state['experiment']['start_date'], '%Y-%m-%d')
+    state['current_state']['day'] = (datetime.strptime(today, '%Y-%m-%d') - start).days + 1
     state['current_state']['bankroll'] = round(state['current_state']['bankroll'], 2)
     save_state(state)
     

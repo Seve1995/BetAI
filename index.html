@@ -703,8 +703,9 @@
             container.innerHTML = allBets.map(bet => {
                 const cls = bet.result === 'WIN' ? 'win' : bet.result === 'LOSS' ? 'loss' : 'pending';
                 const txt = bet.result === 'WIN' ? `+€${bet.profit?.toFixed(2)}` : bet.result === 'LOSS' ? `-€${bet.stake?.toFixed(2)}` : 'Pending';
+                const timeStr = bet.time ? ` • ${bet.time}` : '';
                 return `<div class="bet-card">
-                    <div class="bet-match"><div class="league">${bet.league || ''} • ${bet.date}</div><div>${bet.match}</div></div>
+                    <div class="bet-match"><div class="league">${bet.league || ''} • ${bet.date}${timeStr}</div><div>${bet.match}</div></div>
                     <div class="bet-tip">${bet.tip}</div>
                     <div class="bet-stake">€${bet.stake?.toFixed(2)} @ ${bet.odds?.toFixed(2)}</div>
                     <div class="bet-result ${cls}">${txt}</div>
