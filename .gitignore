@@ -20,6 +20,11 @@ build/
 # Database files (large, can be regenerated)
 data/*.db
 data/raw_csv/
+data/team_stats.json
+data/fitted_params.json
+
+# Archive (deprecated scripts)
+archive/
 
 # IDE
 .vscode/
@@ -41,4 +46,4 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
-run_day1.py
+

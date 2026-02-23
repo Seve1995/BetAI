@@ -1,16 +1,16 @@
 {
   "experiment": {
-    "start_date": "2026-01-25",
-    "end_date": "2026-02-25",
+    "start_date": "2026-02-23",
+    "end_date": "2026-03-25",
     "initial_bankroll": 100.0
   },
   "current_state": {
-    "bankroll": 85.9968,
-    "day": 2,
-    "last_run": "2026-01-26"
+    "bankroll": 100.0,
+    "day": 1,
+    "last_run": null
   },
   "strategy": {
-    "version": "1.1",
+    "version": "2.2",
     "min_ev": 0.05,
     "min_edge": 0.03,
     "kelly_fraction": 0.25,
@@ -19,134 +19,18 @@
     "max_odds": 6.0
   },
   "stats": {
-    "total_bets": 8,
-    "wins": 2,
-    "losses": 6,
-    "pending": 1,
-    "total_staked": 24.36,
-    "total_returns": 14.8568,
-    "total_profit": -9.5032
+    "total_bets": 0,
+    "wins": 0,
+    "losses": 0,
+    "pending": 0,
+    "total_staked": 0.0,
+    "total_returns": 0.0,
+    "total_profit": 0.0
   },
-  "pending_bets": [
-    {
-      "match": "Ey\u00fcpspor vs Be\u015fikta\u015f",
-      "date": "2026-01-26",
-      "type": "BTTS",
-      "prediction": "Yes",
-      "odds": 1.85,
-      "stake": 4.5,
-      "prob": 0.581,
-      "reasoning": "EV: +7.5% (Prob: 58%, Odds: 1.85)",
-      "status": "PENDING"
-    }
-  ],
-  "completed_bets": [
-    {
-      "date": "2026-01-25",
-      "match": "Paris FC vs Angers",
-      "league": "Ligue 1",
-      "tip": "2 (Angers)",
-      "odds": 4.61,
-      "stake": 2.41,
-      "ev": 0.34734812966473505,
-      "edge": 0.0753466658708753,
-      "our_prob": 0.29226640556718764,
-      "result": "LOSS",
-      "profit": -2.41
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Alaves vs Real Betis",
-      "league": "La Liga",
-      "tip": "2 (Real Betis)",
-      "odds": 2.82,
-      "stake": 4.2,
-      "ev": 0.3057356494662007,
-      "edge": 0.10841689697383006,
-      "our_prob": 0.46302682605184425,
-      "result": "LOSS",
-      "profit": -4.2
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Arsenal vs Manchester United",
-      "league": "Premier League",
-      "tip": "2 (Manchester United)",
-      "odds": 5.48,
-      "stake": 1.52,
-      "ev": 0.2732267991580648,
-      "edge": 0.04985890495585124,
-      "our_prob": 0.23234065678066876,
-      "result": "WIN",
-      "profit": 6.8096000000000005
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Brentford vs Nottingham Forest",
-      "league": "Premier League",
-      "tip": "1 (Brentford)",
-      "odds": 1.84,
-      "stake": 7.86,
-      "ev": 0.2641993826263642,
-      "edge": 0.14358662099258923,
-      "our_prob": 0.6870648818621544,
-      "result": "LOSS",
-      "profit": -7.86
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Crystal Palace vs Chelsea",
-      "league": "Premier League",
-      "tip": "1 (Crystal Palace)",
-      "odds": 3.46,
-      "stake": 2.62,
-      "ev": 0.2574194905249435,
-      "edge": 0.07439869668350968,
-      "our_prob": 0.36341603772397213,
-      "result": "LOSS",
-      "profit": -2.62
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Real Sociedad vs Celta Vigo",
-      "league": "La Liga",
-      "tip": "2 (Celta Vigo)",
-      "odds": 3.54,
-      "stake": 2.2,
-      "ev": 0.22316851618410027,
-      "edge": 0.06304195372432209,
-      "our_prob": 0.3455278294305368,
-      "result": "LOSS",
-      "profit": -2.2
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Genoa vs Bologna",
-      "league": "Serie A",
-      "tip": "1 (Genoa)",
-      "odds": 3.28,
-      "stake": 1.99,
-      "ev": 0.18120598047426195,
-      "edge": 0.05524572575434816,
-      "our_prob": 0.36012377453483596,
-      "result": "WIN",
-      "profit": 4.5371999999999995
-    },
-    {
-      "date": "2026-01-25",
-      "match": "Lille vs Strasbourg",
-      "league": "Ligue 1",
-      "tip": "1 (Lille)",
-      "odds": 2.4,
-      "stake": 1.56,
-      "ev": 0.08713968709560849,
-      "edge": 0.036308202956503555,
-      "our_prob": 0.45297486962317024,
-      "result": "LOSS",
-      "profit": -1.56
-    }
-  ],
+  "pending_bets": [],
+  "completed_bets": [],
   "learnings": [
-    "v1.1: Fixed xG formula - defensive factors now correctly applied"
+    "v2.1: Venue-specific ratings, Bayesian shrinkage (k=5), O/U 2.5 markets, per-league HA",
+    "v2.2: Learning Engine enabled - Dixon-Coles MLE fitting on 1,200+ historical matches"
   ]
 }

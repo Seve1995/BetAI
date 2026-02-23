@@ -2,517 +2,1067 @@
     "Serie A": {
         "teams": {
             "Inter": {
-                "total_xg": 44.17389976978302,
-                "total_xga": 17.33940002322197,
-                "matches": 22
+                "total_xg": 52.90769982337952,
+                "total_xga": 19.870000027120113,
+                "matches": 26,
+                "home_goal_ratio": 0.5806451612903226,
+                "away_goal_ratio": 0.41935483870967744,
+                "home_conceded_ratio": 0.5714285714285714,
+                "away_conceded_ratio": 0.42857142857142855,
+                "home_played": 13,
+                "away_played": 13
             },
             "Juventus": {
-                "total_xg": 37.078399896621704,
-                "total_xga": 17.419299952685833,
-                "matches": 22
-            },
-            "Como": {
-                "total_xg": 32.84569990634918,
-                "total_xga": 21.260399997234344,
-                "matches": 22
-            },
-            "Atalanta": {
-                "total_xg": 34.34070011973381,
-                "total_xga": 22.146600037813187,
-                "matches": 22
+                "total_xg": 45.76669991016388,
+                "total_xga": 22.87719999998808,
+                "matches": 26,
+                "home_goal_ratio": 0.5813953488372093,
+                "away_goal_ratio": 0.4186046511627907,
+                "home_conceded_ratio": 0.48,
+                "away_conceded_ratio": 0.52,
+                "home_played": 13,
+                "away_played": 13
             },
             "Milan": {
-                "total_xg": 36.05770015716553,
-                "total_xga": 26.219799995422363,
-                "matches": 22
+                "total_xg": 43.353900134563446,
+                "total_xga": 29.228099942207336,
+                "matches": 26,
+                "home_goal_ratio": 0.43902439024390244,
+                "away_goal_ratio": 0.5609756097560976,
+                "home_conceded_ratio": 0.55,
+                "away_conceded_ratio": 0.45,
+                "home_played": 13,
+                "away_played": 13
             },
-            "Napoli": {
-                "total_xg": 30.766699954867363,
-                "total_xga": 22.960399940609932,
-                "matches": 22
+            "Como": {
+                "total_xg": 41.465099811553955,
+                "total_xga": 24.902399957180023,
+                "matches": 26,
+                "home_goal_ratio": 0.5121951219512195,
+                "away_goal_ratio": 0.4878048780487805,
+                "home_conceded_ratio": 0.47368421052631576,
+                "away_conceded_ratio": 0.5263157894736842,
+                "home_played": 13,
+                "away_played": 13
             },
             "Roma": {
-                "total_xg": 30.492100089788437,
-                "total_xga": 24.33629995584488,
-                "matches": 22
+                "total_xg": 36.26720002293587,
+                "total_xga": 25.991499941796064,
+                "matches": 26,
+                "home_goal_ratio": 0.5588235294117647,
+                "away_goal_ratio": 0.4411764705882353,
+                "home_conceded_ratio": 0.375,
+                "away_conceded_ratio": 0.625,
+                "home_played": 13,
+                "away_played": 13
+            },
+            "Atalanta": {
+                "total_xg": 39.13370004296303,
+                "total_xga": 30.334300011396408,
+                "matches": 26,
+                "home_goal_ratio": 0.6111111111111112,
+                "away_goal_ratio": 0.3888888888888889,
+                "home_conceded_ratio": 0.5,
+                "away_conceded_ratio": 0.5,
+                "home_played": 14,
+                "away_played": 12
+            },
+            "Napoli": {
+                "total_xg": 36.61289994418621,
+                "total_xga": 28.239599898457527,
+                "matches": 26,
+                "home_goal_ratio": 0.5384615384615384,
+                "away_goal_ratio": 0.46153846153846156,
+                "home_conceded_ratio": 0.4074074074074074,
+                "away_conceded_ratio": 0.5925925925925926,
+                "home_played": 12,
+                "away_played": 14
             },
             "Fiorentina": {
-                "total_xg": 34.32489976286888,
-                "total_xga": 31.320599853992462,
-                "matches": 22
-            },
-            "Bologna": {
-                "total_xg": 27.36309987306595,
-                "total_xga": 27.55129996687174,
-                "matches": 22
+                "total_xg": 38.608799666166306,
+                "total_xga": 34.86059981584549,
+                "matches": 25,
+                "home_goal_ratio": 0.5862068965517241,
+                "away_goal_ratio": 0.41379310344827586,
+                "home_conceded_ratio": 0.48717948717948717,
+                "away_conceded_ratio": 0.5128205128205128,
+                "home_played": 12,
+                "away_played": 13
             },
             "Genoa": {
-                "total_xg": 26.497399747371674,
-                "total_xga": 26.45549999549985,
-                "matches": 22
+                "total_xg": 32.83059984445572,
+                "total_xga": 33.54850010946393,
+                "matches": 26,
+                "home_goal_ratio": 0.53125,
+                "away_goal_ratio": 0.46875,
+                "home_conceded_ratio": 0.4864864864864865,
+                "away_conceded_ratio": 0.5135135135135135,
+                "home_played": 14,
+                "away_played": 12
             },
-            "Hellas Verona": {
-                "total_xg": 22.149100229144096,
-                "total_xga": 26.335999831557274,
-                "matches": 21
-            },
-            "Udinese": {
-                "total_xg": 23.402999877929688,
-                "total_xga": 29.04349958896637,
-                "matches": 21
-            },
-            "Torino": {
-                "total_xg": 24.515999883413315,
-                "total_xga": 32.9353998452425,
-                "matches": 22
-            },
-            "Pisa": {
-                "total_xg": 24.00210016220808,
-                "total_xga": 35.713600277900696,
-                "matches": 22
+            "Bologna": {
+                "total_xg": 30.247399896383286,
+                "total_xga": 30.811699993908405,
+                "matches": 25,
+                "home_goal_ratio": 0.35294117647058826,
+                "away_goal_ratio": 0.6470588235294118,
+                "home_conceded_ratio": 0.4375,
+                "away_conceded_ratio": 0.5625,
+                "home_played": 12,
+                "away_played": 13
             },
             "Sassuolo": {
-                "total_xg": 22.088799819350243,
-                "total_xga": 31.263000190258026,
-                "matches": 22
+                "total_xg": 28.46139995753765,
+                "total_xga": 36.096900165081024,
+                "matches": 26,
+                "home_goal_ratio": 0.46875,
+                "away_goal_ratio": 0.53125,
+                "home_conceded_ratio": 0.5428571428571428,
+                "away_conceded_ratio": 0.45714285714285713,
+                "home_played": 13,
+                "away_played": 13
             },
-            "Parma": {
-                "total_xg": 20.707300040870905,
-                "total_xga": 31.33769979327917,
-                "matches": 22
+            "Udinese": {
+                "total_xg": 27.002899825572968,
+                "total_xga": 33.44939959049225,
+                "matches": 25,
+                "home_goal_ratio": 0.4642857142857143,
+                "away_goal_ratio": 0.5357142857142857,
+                "home_conceded_ratio": 0.47368421052631576,
+                "away_conceded_ratio": 0.5263157894736842,
+                "home_played": 13,
+                "away_played": 12
+            },
+            "Hellas Verona": {
+                "total_xg": 25.146800227463245,
+                "total_xga": 34.246099814772606,
+                "matches": 26,
+                "home_goal_ratio": 0.5789473684210527,
+                "away_goal_ratio": 0.42105263157894735,
+                "home_conceded_ratio": 0.41304347826086957,
+                "away_conceded_ratio": 0.5869565217391305,
+                "home_played": 12,
+                "away_played": 14
+            },
+            "Torino": {
+                "total_xg": 28.307499945163727,
+                "total_xga": 38.296699836850166,
+                "matches": 26,
+                "home_goal_ratio": 0.52,
+                "away_goal_ratio": 0.48,
+                "home_conceded_ratio": 0.46808510638297873,
+                "away_conceded_ratio": 0.5319148936170213,
+                "home_played": 13,
+                "away_played": 13
             },
             "Lazio": {
-                "total_xg": 22.206099808216095,
-                "total_xga": 28.802599906921387,
-                "matches": 22
+                "total_xg": 27.21689999103546,
+                "total_xga": 35.53539991378784,
+                "matches": 26,
+                "home_goal_ratio": 0.6923076923076923,
+                "away_goal_ratio": 0.3076923076923077,
+                "home_conceded_ratio": 0.64,
+                "away_conceded_ratio": 0.36,
+                "home_played": 13,
+                "away_played": 13
             },
-            "Cremonese": {
-                "total_xg": 21.8051001355052,
-                "total_xga": 34.727699995040894,
-                "matches": 22
+            "Pisa": {
+                "total_xg": 26.6555001065135,
+                "total_xga": 40.37310030311346,
+                "matches": 25,
+                "home_goal_ratio": 0.2,
+                "away_goal_ratio": 0.8,
+                "home_conceded_ratio": 0.38095238095238093,
+                "away_conceded_ratio": 0.6190476190476191,
+                "home_played": 13,
+                "away_played": 12
+            },
+            "Parma": {
+                "total_xg": 23.625400070101023,
+                "total_xga": 39.03679987043142,
+                "matches": 26,
+                "home_goal_ratio": 0.5263157894736842,
+                "away_goal_ratio": 0.47368421052631576,
+                "home_conceded_ratio": 0.5806451612903226,
+                "away_conceded_ratio": 0.41935483870967744,
+                "home_played": 13,
+                "away_played": 13
             },
             "Cagliari": {
-                "total_xg": 20.531700171530247,
-                "total_xga": 33.543700128793716,
-                "matches": 22
+                "total_xg": 24.53190017491579,
+                "total_xga": 37.25840023159981,
+                "matches": 26,
+                "home_goal_ratio": 0.5357142857142857,
+                "away_goal_ratio": 0.4642857142857143,
+                "home_conceded_ratio": 0.42857142857142855,
+                "away_conceded_ratio": 0.5714285714285714,
+                "home_played": 13,
+                "away_played": 13
+            },
+            "Cremonese": {
+                "total_xg": 25.449900094419718,
+                "total_xga": 41.27209985256195,
+                "matches": 26,
+                "home_goal_ratio": 0.5238095238095238,
+                "away_goal_ratio": 0.47619047619047616,
+                "home_conceded_ratio": 0.4166666666666667,
+                "away_conceded_ratio": 0.5833333333333334,
+                "home_played": 12,
+                "away_played": 14
             },
             "Lecce": {
-                "total_xg": 16.696899995207787,
-                "total_xga": 31.33390012383461,
-                "matches": 22
+                "total_xg": 20.31070003658533,
+                "total_xga": 37.67410025000572,
+                "matches": 26,
+                "home_goal_ratio": 0.5294117647058824,
+                "away_goal_ratio": 0.47058823529411764,
+                "home_conceded_ratio": 0.5454545454545454,
+                "away_conceded_ratio": 0.45454545454545453,
+                "home_played": 14,
+                "away_played": 12
             }
         },
-        "avg_xg": 1.260380592239706,
-        "avg_xga": 1.260380592239706,
-        "last_updated": "2026-01-26T16:42:44.159632"
+        "avg_xg": 1.2672536812520536,
+        "avg_xga": 1.2672536812520536,
+        "total_matches": 516,
+        "home_advantage": 1.094,
+        "last_updated": "2026-02-23T10:25:12.465926"
     },
     "Premier League": {
         "teams": {
             "Arsenal": {
-                "total_xg": 40.463900208473206,
-                "total_xga": 16.271700158715248,
-                "matches": 23
+                "total_xg": 48.41960018873215,
+                "total_xga": 19.169900253415108,
+                "matches": 28,
+                "home_goal_ratio": 0.5535714285714286,
+                "away_goal_ratio": 0.44642857142857145,
+                "home_conceded_ratio": 0.38095238095238093,
+                "away_conceded_ratio": 0.6190476190476191,
+                "home_played": 13,
+                "away_played": 15
             },
             "Manchester City": {
-                "total_xg": 41.553699642419815,
-                "total_xga": 26.009199917316437,
-                "matches": 23
-            },
-            "Manchester United": {
-                "total_xg": 41.31949996948242,
-                "total_xga": 28.617200031876564,
-                "matches": 23
-            },
-            "Liverpool": {
-                "total_xg": 36.403899908065796,
-                "total_xga": 26.512600138783455,
-                "matches": 23
-            },
-            "Newcastle United": {
-                "total_xg": 34.81079961359501,
-                "total_xga": 25.186199858784676,
-                "matches": 23
+                "total_xg": 49.108299762010574,
+                "total_xga": 30.31069988012314,
+                "matches": 27
             },
             "Chelsea": {
-                "total_xg": 41.04679986834526,
-                "total_xga": 32.906999833881855,
-                "matches": 23
+                "total_xg": 52.30319997668266,
+                "total_xga": 37.36929989606142,
+                "matches": 27,
+                "home_goal_ratio": 0.4791666666666667,
+                "away_goal_ratio": 0.5208333333333334,
+                "home_conceded_ratio": 0.5161290322580645,
+                "away_conceded_ratio": 0.4838709677419355,
+                "home_played": 14,
+                "away_played": 13
             },
-            "Brentford": {
-                "total_xg": 38.078300416469574,
-                "total_xga": 30.995200246572495,
-                "matches": 23
+            "Liverpool": {
+                "total_xg": 44.1521999835968,
+                "total_xga": 31.43810023367405,
+                "matches": 27,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.4,
+                "away_conceded_ratio": 0.6,
+                "home_played": 13,
+                "away_played": 14
             },
-            "AFC Bournemouth": {
-                "total_xg": 36.57550033926964,
-                "total_xga": 33.44090011715889,
-                "matches": 23
+            "Manchester United": {
+                "total_xg": 45.46410000324249,
+                "total_xga": 32.154100105166435,
+                "matches": 26
             },
             "Crystal Palace": {
-                "total_xg": 36.06460005044937,
-                "total_xga": 31.67080020904541,
-                "matches": 23
+                "total_xg": 42.91529995203018,
+                "total_xga": 35.058500200510025,
+                "matches": 27,
+                "home_goal_ratio": 0.4827586206896552,
+                "away_goal_ratio": 0.5172413793103449,
+                "home_conceded_ratio": 0.5625,
+                "away_conceded_ratio": 0.4375,
+                "home_played": 14,
+                "away_played": 13
+            },
+            "Newcastle United": {
+                "total_xg": 40.519799664616585,
+                "total_xga": 32.46089990437031,
+                "matches": 27,
+                "home_goal_ratio": 0.631578947368421,
+                "away_goal_ratio": 0.3684210526315789,
+                "home_conceded_ratio": 0.5128205128205128,
+                "away_conceded_ratio": 0.48717948717948717,
+                "home_played": 13,
+                "away_played": 14
+            },
+            "Brentford": {
+                "total_xg": 43.351400434970856,
+                "total_xga": 37.33620026707649,
+                "matches": 27,
+                "home_goal_ratio": 0.6,
+                "away_goal_ratio": 0.4,
+                "home_conceded_ratio": 0.40540540540540543,
+                "away_conceded_ratio": 0.5945945945945946,
+                "home_played": 14,
+                "away_played": 13
+            },
+            "AFC Bournemouth": {
+                "total_xg": 41.984500497579575,
+                "total_xga": 41.6326000392437,
+                "matches": 27,
+                "home_goal_ratio": 0.46511627906976744,
+                "away_goal_ratio": 0.5348837209302325,
+                "home_conceded_ratio": 0.3111111111111111,
+                "away_conceded_ratio": 0.6888888888888889,
+                "home_played": 13,
+                "away_played": 14
             },
             "Brighton & Hove Albion": {
-                "total_xg": 36.180399626493454,
-                "total_xga": 33.141699731349945,
-                "matches": 23
+                "total_xg": 39.95689958333969,
+                "total_xga": 37.81839966773987,
+                "matches": 27,
+                "home_goal_ratio": 0.5555555555555556,
+                "away_goal_ratio": 0.4444444444444444,
+                "home_conceded_ratio": 0.4117647058823529,
+                "away_conceded_ratio": 0.5882352941176471,
+                "home_played": 13,
+                "away_played": 14
             },
             "Leeds United": {
-                "total_xg": 31.961999908089638,
-                "total_xga": 31.868000000715256,
-                "matches": 22
-            },
-            "Tottenham Hotspur": {
-                "total_xg": 23.96570009738207,
-                "total_xga": 31.254999846220016,
-                "matches": 23
+                "total_xg": 38.78809981048107,
+                "total_xga": 40.67879995703697,
+                "matches": 27,
+                "home_goal_ratio": 0.5945945945945946,
+                "away_goal_ratio": 0.40540540540540543,
+                "home_conceded_ratio": 0.391304347826087,
+                "away_conceded_ratio": 0.6086956521739131,
+                "home_played": 13,
+                "away_played": 14
             },
             "Aston Villa": {
-                "total_xg": 28.297300174832344,
-                "total_xga": 33.49040016531944,
-                "matches": 23
-            },
-            "Nottingham Forest": {
-                "total_xg": 26.183299779891968,
-                "total_xga": 33.81259998679161,
-                "matches": 23
+                "total_xg": 33.472800090909004,
+                "total_xga": 37.78210026025772,
+                "matches": 27,
+                "home_goal_ratio": 0.5263157894736842,
+                "away_goal_ratio": 0.47368421052631576,
+                "home_conceded_ratio": 0.39285714285714285,
+                "away_conceded_ratio": 0.6071428571428571,
+                "home_played": 14,
+                "away_played": 13
             },
             "Fulham": {
-                "total_xg": 25.697100192308426,
-                "total_xga": 32.37199975550175,
-                "matches": 23
+                "total_xg": 32.90880027413368,
+                "total_xga": 39.261099711060524,
+                "matches": 27,
+                "home_goal_ratio": 0.5789473684210527,
+                "away_goal_ratio": 0.42105263157894735,
+                "home_conceded_ratio": 0.3902439024390244,
+                "away_conceded_ratio": 0.6097560975609756,
+                "home_played": 13,
+                "away_played": 14
             },
-            "Wolverhampton Wanderers": {
-                "total_xg": 20.605500161647797,
-                "total_xga": 31.223399966955185,
-                "matches": 23
+            "Nottingham Forest": {
+                "total_xg": 31.74259975552559,
+                "total_xga": 40.36739993095398,
+                "matches": 27
             },
             "Everton": {
-                "total_xg": 24.13880017399788,
-                "total_xga": 32.19700002670288,
-                "matches": 22
+                "total_xg": 30.859100252389908,
+                "total_xga": 38.32109999656677,
+                "matches": 26,
+                "home_goal_ratio": 0.5517241379310345,
+                "away_goal_ratio": 0.4482758620689655,
+                "home_conceded_ratio": 0.6,
+                "away_conceded_ratio": 0.4,
+                "home_played": 13,
+                "away_played": 13
+            },
+            "Tottenham Hotspur": {
+                "total_xg": 28.1159001365304,
+                "total_xga": 39.665299862623215,
+                "matches": 27,
+                "home_goal_ratio": 0.4594594594594595,
+                "away_goal_ratio": 0.5405405405405406,
+                "home_conceded_ratio": 0.5365853658536586,
+                "away_conceded_ratio": 0.4634146341463415,
+                "home_played": 14,
+                "away_played": 13
             },
             "West Ham United": {
-                "total_xg": 25.842900067567825,
-                "total_xga": 38.417700111866,
-                "matches": 23
+                "total_xg": 32.03680005669594,
+                "total_xga": 43.681800186634064,
+                "matches": 27,
+                "home_goal_ratio": 0.53125,
+                "away_goal_ratio": 0.46875,
+                "home_conceded_ratio": 0.5510204081632653,
+                "away_conceded_ratio": 0.4489795918367347,
+                "home_played": 14,
+                "away_played": 13
+            },
+            "Wolverhampton Wanderers": {
+                "total_xg": 25.392200142145157,
+                "total_xga": 42.173500031232834,
+                "matches": 28
             },
             "Sunderland": {
-                "total_xg": 20.828599870204926,
-                "total_xga": 33.4167001247406,
-                "matches": 23
+                "total_xg": 24.687799841165543,
+                "total_xga": 39.37560014799237,
+                "matches": 27,
+                "home_goal_ratio": 0.7857142857142857,
+                "away_goal_ratio": 0.21428571428571427,
+                "home_conceded_ratio": 0.3939393939393939,
+                "away_conceded_ratio": 0.6060606060606061,
+                "home_played": 14,
+                "away_played": 13
             },
             "Burnley": {
-                "total_xg": 19.952399879693985,
-                "total_xga": 47.16569972038269,
-                "matches": 23
+                "total_xg": 22.71819980815053,
+                "total_xga": 52.84219968318939,
+                "matches": 27,
+                "home_goal_ratio": 0.41379310344827586,
+                "away_goal_ratio": 0.5862068965517241,
+                "home_conceded_ratio": 0.36538461538461536,
+                "away_conceded_ratio": 0.6346153846153846,
+                "home_played": 13,
+                "away_played": 14
             }
         },
-        "avg_xg": 1.37548253263904,
-        "avg_xga": 1.37548253263904,
-        "last_updated": "2026-01-26T16:42:42.388727"
+        "avg_xg": 1.386847407805423,
+        "avg_xga": 1.386847407805423,
+        "total_matches": 540,
+        "home_advantage": 1.22,
+        "last_updated": "2026-02-23T10:25:12.553109"
     },
     "La Liga": {
         "teams": {
             "Real Madrid": {
-                "total_xg": 49.798299908638,
-                "total_xga": 22.932199984788895,
-                "matches": 21
+                "total_xg": 57.78409993648529,
+                "total_xga": 28.43119987845421,
+                "matches": 25,
+                "home_goal_ratio": 0.5370370370370371,
+                "away_goal_ratio": 0.46296296296296297,
+                "home_conceded_ratio": 0.38095238095238093,
+                "away_conceded_ratio": 0.6190476190476191,
+                "home_played": 12,
+                "away_played": 13
             },
             "Barcelona": {
-                "total_xg": 49.73430025577545,
-                "total_xga": 26.867800131440163,
-                "matches": 21
+                "total_xg": 64.5018001794815,
+                "total_xga": 32.05800004303455,
+                "matches": 25,
+                "home_goal_ratio": 0.5522388059701493,
+                "away_goal_ratio": 0.44776119402985076,
+                "home_conceded_ratio": 0.2,
+                "away_conceded_ratio": 0.8,
+                "home_played": 12,
+                "away_played": 13
             },
             "Atletico Madrid": {
-                "total_xg": 34.057799994945526,
-                "total_xga": 24.075000077486038,
-                "matches": 21
-            },
-            "Villarreal": {
-                "total_xg": 31.86100023984909,
-                "total_xga": 24.198599621653557,
-                "matches": 20
+                "total_xg": 39.40349990129471,
+                "total_xga": 27.809799998998642,
+                "matches": 25,
+                "home_goal_ratio": 0.7142857142857143,
+                "away_goal_ratio": 0.2857142857142857,
+                "home_conceded_ratio": 0.43478260869565216,
+                "away_conceded_ratio": 0.5652173913043478,
+                "home_played": 13,
+                "away_played": 12
             },
             "Athletic Club": {
-                "total_xg": 29.776600122451782,
-                "total_xga": 23.933999739587307,
-                "matches": 21
+                "total_xg": 37.08300018310547,
+                "total_xga": 27.269199810922146,
+                "matches": 25,
+                "home_goal_ratio": 0.5862068965517241,
+                "away_goal_ratio": 0.41379310344827586,
+                "home_conceded_ratio": 0.42857142857142855,
+                "away_conceded_ratio": 0.5714285714285714,
+                "home_played": 13,
+                "away_played": 12
+            },
+            "Villarreal": {
+                "total_xg": 38.59610027074814,
+                "total_xga": 30.03239957988262,
+                "matches": 25,
+                "home_goal_ratio": 0.6170212765957447,
+                "away_goal_ratio": 0.3829787234042553,
+                "home_conceded_ratio": 0.4074074074074074,
+                "away_conceded_ratio": 0.5925925925925926,
+                "home_played": 13,
+                "away_played": 12
             },
             "Real Betis": {
-                "total_xg": 32.40859994292259,
-                "total_xga": 26.28029975295067,
-                "matches": 21
-            },
-            "Espanyol": {
-                "total_xg": 30.495600134134293,
-                "total_xga": 26.473399683833122,
-                "matches": 21
+                "total_xg": 38.768999963998795,
+                "total_xga": 30.889199882745743,
+                "matches": 25,
+                "home_goal_ratio": 0.575,
+                "away_goal_ratio": 0.425,
+                "home_conceded_ratio": 0.43333333333333335,
+                "away_conceded_ratio": 0.5666666666666667,
+                "home_played": 12,
+                "away_played": 13
             },
             "Celta Vigo": {
-                "total_xg": 28.132900178432465,
-                "total_xga": 28.134500175714493,
-                "matches": 21
-            },
-            "Rayo Vallecano": {
-                "total_xg": 28.55430018901825,
-                "total_xga": 27.251000106334686,
-                "matches": 21
-            },
-            "Valencia": {
-                "total_xg": 25.46419970691204,
-                "total_xga": 27.208800613880157,
-                "matches": 21
+                "total_xg": 35.578000262379646,
+                "total_xga": 30.03590016812086,
+                "matches": 25,
+                "home_goal_ratio": 0.5588235294117647,
+                "away_goal_ratio": 0.4411764705882353,
+                "home_conceded_ratio": 0.5555555555555556,
+                "away_conceded_ratio": 0.4444444444444444,
+                "home_played": 13,
+                "away_played": 12
             },
             "Real Sociedad": {
-                "total_xg": 28.482100009918213,
-                "total_xga": 29.39290003478527,
-                "matches": 21
+                "total_xg": 36.566399812698364,
+                "total_xga": 36.42640011012554,
+                "matches": 25,
+                "home_goal_ratio": 0.6486486486486487,
+                "away_goal_ratio": 0.35135135135135137,
+                "home_conceded_ratio": 0.5263157894736842,
+                "away_conceded_ratio": 0.47368421052631576,
+                "home_played": 13,
+                "away_played": 12
             },
-            "Osasuna": {
-                "total_xg": 24.060500353574753,
-                "total_xga": 27.290999829769135,
-                "matches": 21
+            "Valencia": {
+                "total_xg": 29.951599821448326,
+                "total_xga": 32.70350068807602,
+                "matches": 25,
+                "home_goal_ratio": 0.5769230769230769,
+                "away_goal_ratio": 0.4230769230769231,
+                "home_conceded_ratio": 0.3333333333333333,
+                "away_conceded_ratio": 0.6666666666666666,
+                "home_played": 12,
+                "away_played": 13
+            },
+            "Rayo Vallecano": {
+                "total_xg": 32.07420015335083,
+                "total_xga": 32.01590007543564,
+                "matches": 24,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.2903225806451613,
+                "away_conceded_ratio": 0.7096774193548387,
+                "home_played": 11,
+                "away_played": 13
+            },
+            "Espanyol": {
+                "total_xg": 33.50460007786751,
+                "total_xga": 34.456299528479576,
+                "matches": 25,
+                "home_goal_ratio": 0.5161290322580645,
+                "away_goal_ratio": 0.4838709677419355,
+                "home_conceded_ratio": 0.4864864864864865,
+                "away_conceded_ratio": 0.5135135135135135,
+                "home_played": 13,
+                "away_played": 12
             },
             "Deportivo Alaves": {
-                "total_xg": 23.242399714887142,
-                "total_xga": 26.064900189638138,
-                "matches": 21
+                "total_xg": 28.18079986423254,
+                "total_xga": 28.7988001704216,
+                "matches": 24,
+                "home_goal_ratio": 0.6666666666666666,
+                "away_goal_ratio": 0.3333333333333333,
+                "home_conceded_ratio": 0.43333333333333335,
+                "away_conceded_ratio": 0.5666666666666667,
+                "home_played": 12,
+                "away_played": 12
             },
-            "Levante": {
-                "total_xg": 26.832900136709213,
-                "total_xga": 34.23490011692047,
-                "matches": 20
-            },
-            "Elche": {
-                "total_xg": 23.46420009434223,
-                "total_xga": 33.48949956893921,
-                "matches": 21
-            },
-            "Sevilla": {
-                "total_xg": 24.889500066637993,
-                "total_xga": 34.70820015668869,
-                "matches": 21
-            },
-            "Girona": {
-                "total_xg": 22.522100150585175,
-                "total_xga": 33.77110028266907,
-                "matches": 20
+            "Osasuna": {
+                "total_xg": 29.159000247716904,
+                "total_xga": 33.99799978733063,
+                "matches": 25,
+                "home_goal_ratio": 0.7333333333333333,
+                "away_goal_ratio": 0.26666666666666666,
+                "home_conceded_ratio": 0.4827586206896552,
+                "away_conceded_ratio": 0.5172413793103449,
+                "home_played": 12,
+                "away_played": 13
             },
             "Getafe": {
-                "total_xg": 13.76269993185997,
-                "total_xga": 21.526700109243393,
-                "matches": 20
+                "total_xg": 18.70589992403984,
+                "total_xga": 25.399300202727318,
+                "matches": 25,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.3793103448275862,
+                "away_conceded_ratio": 0.6206896551724138,
+                "home_played": 13,
+                "away_played": 12
+            },
+            "Girona": {
+                "total_xg": 29.341100096702576,
+                "total_xga": 39.47180038690567,
+                "matches": 24,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.5,
+                "away_conceded_ratio": 0.5,
+                "home_played": 12,
+                "away_played": 12
+            },
+            "Levante": {
+                "total_xg": 29.776200145483017,
+                "total_xga": 43.04650002717972,
+                "matches": 25,
+                "home_goal_ratio": 0.4230769230769231,
+                "away_goal_ratio": 0.5769230769230769,
+                "home_conceded_ratio": 0.5227272727272727,
+                "away_conceded_ratio": 0.4772727272727273,
+                "home_played": 12,
+                "away_played": 13
+            },
+            "Elche": {
+                "total_xg": 28.25030006468296,
+                "total_xga": 46.30129945278168,
+                "matches": 25,
+                "home_goal_ratio": 0.625,
+                "away_goal_ratio": 0.375,
+                "home_conceded_ratio": 0.35135135135135137,
+                "away_conceded_ratio": 0.6486486486486487,
+                "home_played": 13,
+                "away_played": 12
+            },
+            "Sevilla": {
+                "total_xg": 27.392400100827217,
+                "total_xga": 41.34950029850006,
+                "matches": 25,
+                "home_goal_ratio": 0.5625,
+                "away_goal_ratio": 0.4375,
+                "home_conceded_ratio": 0.48717948717948717,
+                "away_conceded_ratio": 0.5128205128205128,
+                "home_played": 13,
+                "away_played": 12
             },
             "Mallorca": {
-                "total_xg": 22.44819976389408,
-                "total_xga": 34.97150018811226,
-                "matches": 21
+                "total_xg": 27.018599845468998,
+                "total_xga": 43.38800027966499,
+                "matches": 25,
+                "home_goal_ratio": 0.6551724137931034,
+                "away_goal_ratio": 0.3448275862068966,
+                "home_conceded_ratio": 0.3902439024390244,
+                "away_conceded_ratio": 0.6097560975609756,
+                "home_played": 12,
+                "away_played": 13
             },
             "Real Oviedo": {
-                "total_xg": 19.6630999147892,
-                "total_xga": 36.84500044584274,
-                "matches": 21
+                "total_xg": 23.086499899625778,
+                "total_xga": 40.842100381851196,
+                "matches": 24,
+                "home_goal_ratio": 0.3125,
+                "away_goal_ratio": 0.6875,
+                "home_conceded_ratio": 0.3333333333333333,
+                "away_conceded_ratio": 0.6666666666666666,
+                "home_played": 12,
+                "away_played": 12
             }
         },
-        "avg_xg": 1.3693540884862438,
-        "avg_xga": 1.3693540884862438,
-        "last_updated": "2026-01-26T16:42:43.064241"
+        "avg_xg": 1.380490122483142,
+        "avg_xga": 1.380490122483142,
+        "total_matches": 496,
+        "home_advantage": 1.371,
+        "last_updated": "2026-02-23T10:25:12.625783"
     },
     "Bundesliga": {
         "teams": {
             "Bayern M\u00fcnchen": {
-                "total_xg": 55.25319957733154,
-                "total_xga": 16.048399940133095,
-                "matches": 19
+                "total_xg": 68.41949951648712,
+                "total_xga": 23.498599782586098,
+                "matches": 23,
+                "home_goal_ratio": 0.5647058823529412,
+                "away_goal_ratio": 0.43529411764705883,
+                "home_conceded_ratio": 0.5714285714285714,
+                "away_conceded_ratio": 0.42857142857142855,
+                "home_played": 12,
+                "away_played": 11
             },
             "Borussia Dortmund": {
-                "total_xg": 32.54300004243851,
-                "total_xga": 18.66950014233589,
-                "matches": 19
-            },
-            "Bayer Leverkusen": {
-                "total_xg": 32.495600178837776,
-                "total_xga": 22.049100019037724,
-                "matches": 18
-            },
-            "VfB Stuttgart": {
-                "total_xg": 30.97459989786148,
-                "total_xga": 26.277599930763245,
-                "matches": 19
+                "total_xg": 41.017700135707855,
+                "total_xga": 25.851799994707108,
+                "matches": 23,
+                "home_goal_ratio": 0.5306122448979592,
+                "away_goal_ratio": 0.46938775510204084,
+                "home_conceded_ratio": 0.36363636363636365,
+                "away_conceded_ratio": 0.6363636363636364,
+                "home_played": 11,
+                "away_played": 12
             },
             "RB Leipzig": {
-                "total_xg": 34.74779969453812,
-                "total_xga": 26.553599879145622,
-                "matches": 18
+                "total_xg": 44.34929972887039,
+                "total_xga": 33.611000046133995,
+                "matches": 23,
+                "home_goal_ratio": 0.6136363636363636,
+                "away_goal_ratio": 0.38636363636363635,
+                "home_conceded_ratio": 0.53125,
+                "away_conceded_ratio": 0.46875,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "Bayer Leverkusen": {
+                "total_xg": 36.95430012047291,
+                "total_xga": 24.9206999912858,
+                "matches": 22,
+                "home_goal_ratio": 0.5581395348837209,
+                "away_goal_ratio": 0.4418604651162791,
+                "home_conceded_ratio": 0.35714285714285715,
+                "away_conceded_ratio": 0.6428571428571429,
+                "home_played": 11,
+                "away_played": 11
+            },
+            "VfB Stuttgart": {
+                "total_xg": 38.104599833488464,
+                "total_xga": 32.6418998837471,
+                "matches": 23,
+                "home_goal_ratio": 0.38636363636363635,
+                "away_goal_ratio": 0.6136363636363636,
+                "home_conceded_ratio": 0.375,
+                "away_conceded_ratio": 0.625,
+                "home_played": 11,
+                "away_played": 12
             },
             "Freiburg": {
-                "total_xg": 31.554000005126,
-                "total_xga": 25.914000153541565,
-                "matches": 19
+                "total_xg": 35.21560002863407,
+                "total_xga": 31.10660022497177,
+                "matches": 23,
+                "home_goal_ratio": 0.6176470588235294,
+                "away_goal_ratio": 0.38235294117647056,
+                "home_conceded_ratio": 0.32432432432432434,
+                "away_conceded_ratio": 0.6756756756756757,
+                "home_played": 11,
+                "away_played": 12
             },
             "Hoffenheim": {
-                "total_xg": 29.192799627780914,
-                "total_xga": 24.9822998046875,
-                "matches": 18
+                "total_xg": 36.61569958925247,
+                "total_xga": 36.52169966697693,
+                "matches": 23,
+                "home_goal_ratio": 0.5510204081632653,
+                "away_goal_ratio": 0.4489795918367347,
+                "home_conceded_ratio": 0.43333333333333335,
+                "away_conceded_ratio": 0.5666666666666667,
+                "home_played": 11,
+                "away_played": 12
             },
             "Union Berlin": {
-                "total_xg": 25.338299870491028,
-                "total_xga": 25.755099892616272,
-                "matches": 19
+                "total_xg": 31.38409984111786,
+                "total_xga": 30.263799861073494,
+                "matches": 23,
+                "home_goal_ratio": 0.5862068965517241,
+                "away_goal_ratio": 0.41379310344827586,
+                "home_conceded_ratio": 0.4594594594594595,
+                "away_conceded_ratio": 0.5405405405405406,
+                "home_played": 12,
+                "away_played": 11
             },
             "Eintracht Frankfurt": {
-                "total_xg": 26.118400007486343,
-                "total_xga": 27.837800070643425,
-                "matches": 19
-            },
-            "Borussia M\u00f6nchengladbach": {
-                "total_xg": 25.315099895000458,
-                "total_xga": 29.93259957432747,
-                "matches": 19
-            },
-            "1. FC K\u00f6ln": {
-                "total_xg": 27.708399951457977,
-                "total_xga": 30.949799597263336,
-                "matches": 19
+                "total_xg": 31.345400020480156,
+                "total_xga": 34.50200001895428,
+                "matches": 23,
+                "home_goal_ratio": 0.43478260869565216,
+                "away_goal_ratio": 0.5652173913043478,
+                "home_conceded_ratio": 0.3673469387755102,
+                "away_conceded_ratio": 0.6326530612244898,
+                "home_played": 11,
+                "away_played": 12
             },
             "Mainz 05": {
-                "total_xg": 25.303299859166145,
-                "total_xga": 36.239599734544754,
-                "matches": 19
-            },
-            "Hamburger SV": {
-                "total_xg": 20.643399983644485,
-                "total_xga": 26.020600110292435,
-                "matches": 18
-            },
-            "Wolfsburg": {
-                "total_xg": 25.478099822998047,
-                "total_xga": 34.8418003320694,
-                "matches": 19
-            },
-            "FC Heidenheim": {
-                "total_xg": 24.031500108540058,
-                "total_xga": 35.863599836826324,
-                "matches": 19
+                "total_xg": 33.07929988205433,
+                "total_xga": 41.69529977440834,
+                "matches": 23,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.3684210526315789,
+                "away_conceded_ratio": 0.631578947368421,
+                "home_played": 12,
+                "away_played": 11
             },
             "Werder Bremen": {
-                "total_xg": 21.099699944257736,
-                "total_xga": 32.29650002717972,
-                "matches": 18
+                "total_xg": 27.48240002989769,
+                "total_xga": 36.39390003681183,
+                "matches": 23,
+                "home_goal_ratio": 0.5217391304347826,
+                "away_goal_ratio": 0.4782608695652174,
+                "home_conceded_ratio": 0.4772727272727273,
+                "away_conceded_ratio": 0.5227272727272727,
+                "home_played": 11,
+                "away_played": 12
+            },
+            "Borussia M\u00f6nchengladbach": {
+                "total_xg": 28.820099890232086,
+                "total_xga": 35.32389959692955,
+                "matches": 23
+            },
+            "1. FC K\u00f6ln": {
+                "total_xg": 32.68869990110397,
+                "total_xga": 38.03259962797165,
+                "matches": 23,
+                "home_goal_ratio": 0.6363636363636364,
+                "away_goal_ratio": 0.36363636363636365,
+                "home_conceded_ratio": 0.48717948717948717,
+                "away_conceded_ratio": 0.5128205128205128,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "Hamburger SV": {
+                "total_xg": 27.26019987463951,
+                "total_xga": 33.636800080537796,
+                "matches": 22,
+                "home_goal_ratio": 0.72,
+                "away_goal_ratio": 0.28,
+                "home_conceded_ratio": 0.40625,
+                "away_conceded_ratio": 0.59375,
+                "home_played": 11,
+                "away_played": 11
+            },
+            "Wolfsburg": {
+                "total_xg": 30.30059975385666,
+                "total_xga": 42.05600047111511,
+                "matches": 23,
+                "home_goal_ratio": 0.5757575757575758,
+                "away_goal_ratio": 0.42424242424242425,
+                "home_conceded_ratio": 0.5306122448979592,
+                "away_conceded_ratio": 0.46938775510204084,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "FC Heidenheim": {
+                "total_xg": 31.109299905598164,
+                "total_xga": 44.9618998169899,
+                "matches": 23,
+                "home_goal_ratio": 0.5909090909090909,
+                "away_goal_ratio": 0.4090909090909091,
+                "home_conceded_ratio": 0.5294117647058824,
+                "away_conceded_ratio": 0.47058823529411764,
+                "home_played": 12,
+                "away_played": 11
             },
             "Augsburg": {
-                "total_xg": 20.917599856853485,
-                "total_xga": 33.71679949760437,
-                "matches": 19
+                "total_xg": 26.479699850082397,
+                "total_xga": 41.26059925556183,
+                "matches": 23,
+                "home_goal_ratio": 0.5357142857142857,
+                "away_goal_ratio": 0.4642857142857143,
+                "home_conceded_ratio": 0.4634146341463415,
+                "away_conceded_ratio": 0.5365853658536586,
+                "home_played": 12,
+                "away_played": 11
             },
             "St. Pauli": {
-                "total_xg": 14.289099961519241,
-                "total_xga": 29.0551997423172,
-                "matches": 18
+                "total_xg": 20.863499879837036,
+                "total_xga": 35.21089965105057,
+                "matches": 23,
+                "home_goal_ratio": 0.5909090909090909,
+                "away_goal_ratio": 0.4090909090909091,
+                "home_conceded_ratio": 0.45,
+                "away_conceded_ratio": 0.55,
+                "home_played": 11,
+                "away_played": 12
             }
         },
-        "avg_xg": 1.49703541156348,
-        "avg_xga": 1.49703541156348,
-        "last_updated": "2026-01-26T16:02:31.905616"
+        "avg_xg": 1.508470868402459,
+        "avg_xga": 1.508470868402459,
+        "total_matches": 412,
+        "home_advantage": 1.226,
+        "last_updated": "2026-02-23T10:25:13.474894"
     },
     "Ligue 1": {
         "teams": {
             "Paris Saint-Germain": {
-                "total_xg": 35.050200045108795,
-                "total_xga": 16.475099876523018,
-                "matches": 19
-            },
-            "Marseille": {
-                "total_xg": 35.17379993200302,
-                "total_xga": 23.184900000691414,
-                "matches": 19
+                "total_xg": 46.767700016498566,
+                "total_xga": 20.888699881732464,
+                "matches": 23
             },
             "Lens": {
-                "total_xg": 35.80129963159561,
-                "total_xga": 25.27879971265793,
-                "matches": 19
+                "total_xg": 44.59069961309433,
+                "total_xga": 29.628499686717987,
+                "matches": 23,
+                "home_goal_ratio": 0.5227272727272727,
+                "away_goal_ratio": 0.4772727272727273,
+                "home_conceded_ratio": 0.4,
+                "away_conceded_ratio": 0.6,
+                "home_played": 12,
+                "away_played": 11
             },
-            "Lyon": {
-                "total_xg": 32.52669961750507,
-                "total_xga": 22.83590018749237,
-                "matches": 19
+            "Marseille": {
+                "total_xg": 41.473000049591064,
+                "total_xga": 32.28610010445118,
+                "matches": 23,
+                "home_goal_ratio": 0.6041666666666666,
+                "away_goal_ratio": 0.3958333333333333,
+                "home_conceded_ratio": 0.41935483870967744,
+                "away_conceded_ratio": 0.5806451612903226,
+                "home_played": 11,
+                "away_played": 12
             },
             "Lille": {
-                "total_xg": 33.48320031166077,
-                "total_xga": 28.46290010213852,
-                "matches": 19
+                "total_xg": 39.64530020952225,
+                "total_xga": 30.71160015463829,
+                "matches": 23,
+                "home_goal_ratio": 0.5,
+                "away_goal_ratio": 0.5,
+                "home_conceded_ratio": 0.41935483870967744,
+                "away_conceded_ratio": 0.5806451612903226,
+                "home_played": 11,
+                "away_played": 12
             },
-            "Brest": {
-                "total_xg": 27.787599802017212,
-                "total_xga": 27.104700028896332,
-                "matches": 19
+            "Lyon": {
+                "total_xg": 36.330099657177925,
+                "total_xga": 27.727400302886963,
+                "matches": 23,
+                "home_goal_ratio": 0.5135135135135135,
+                "away_goal_ratio": 0.4864864864864865,
+                "home_conceded_ratio": 0.30434782608695654,
+                "away_conceded_ratio": 0.6956521739130435,
+                "home_played": 11,
+                "away_played": 12
             },
             "Strasbourg": {
-                "total_xg": 30.868400152772665,
-                "total_xga": 24.402499705553055,
-                "matches": 19
-            },
-            "Rennes": {
-                "total_xg": 29.905299805104733,
-                "total_xga": 28.21920019388199,
-                "matches": 19
+                "total_xg": 37.66920032724738,
+                "total_xga": 28.309199780225754,
+                "matches": 23,
+                "home_goal_ratio": 0.5128205128205128,
+                "away_goal_ratio": 0.48717948717948717,
+                "home_conceded_ratio": 0.26666666666666666,
+                "away_conceded_ratio": 0.7333333333333333,
+                "home_played": 11,
+                "away_played": 12
             },
             "Monaco": {
-                "total_xg": 33.562899976968765,
-                "total_xga": 30.534100025892258,
-                "matches": 19
+                "total_xg": 39.8673999607563,
+                "total_xga": 34.42000010609627,
+                "matches": 23,
+                "home_goal_ratio": 0.6578947368421053,
+                "away_goal_ratio": 0.34210526315789475,
+                "home_conceded_ratio": 0.5277777777777778,
+                "away_conceded_ratio": 0.4722222222222222,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "Brest": {
+                "total_xg": 33.158299803733826,
+                "total_xga": 32.3782000541687,
+                "matches": 23,
+                "home_goal_ratio": 0.5806451612903226,
+                "away_goal_ratio": 0.41935483870967744,
+                "home_conceded_ratio": 0.38235294117647056,
+                "away_conceded_ratio": 0.6176470588235294,
+                "home_played": 12,
+                "away_played": 11
             },
             "Toulouse": {
-                "total_xg": 26.377300024032593,
-                "total_xga": 24.7044002301991,
-                "matches": 19
+                "total_xg": 32.87180018424988,
+                "total_xga": 28.690900195389986,
+                "matches": 23,
+                "home_goal_ratio": 0.6060606060606061,
+                "away_goal_ratio": 0.3939393939393939,
+                "home_conceded_ratio": 0.5925925925925926,
+                "away_conceded_ratio": 0.4074074074074074,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "Rennes": {
+                "total_xg": 34.2775998339057,
+                "total_xga": 35.84790015220642,
+                "matches": 23,
+                "home_goal_ratio": 0.5945945945945946,
+                "away_goal_ratio": 0.40540540540540543,
+                "home_conceded_ratio": 0.34285714285714286,
+                "away_conceded_ratio": 0.6571428571428571,
+                "home_played": 11,
+                "away_played": 12
             },
             "Lorient": {
-                "total_xg": 26.721500113606453,
-                "total_xga": 25.296000011265278,
-                "matches": 19
+                "total_xg": 31.15640003979206,
+                "total_xga": 32.113499976694584,
+                "matches": 23,
+                "home_goal_ratio": 0.6875,
+                "away_goal_ratio": 0.3125,
+                "home_conceded_ratio": 0.4444444444444444,
+                "away_conceded_ratio": 0.5555555555555556,
+                "home_played": 11,
+                "away_played": 12
             },
             "Le Havre": {
-                "total_xg": 22.3574997484684,
-                "total_xga": 26.560799598693848,
-                "matches": 19
-            },
-            "Paris FC": {
-                "total_xg": 24.01660031080246,
-                "total_xga": 29.854799836874008,
-                "matches": 19
+                "total_xg": 25.669299751520157,
+                "total_xga": 32.68789967894554,
+                "matches": 23,
+                "home_goal_ratio": 0.75,
+                "away_goal_ratio": 0.25,
+                "home_conceded_ratio": 0.3793103448275862,
+                "away_conceded_ratio": 0.6206896551724138,
+                "home_played": 12,
+                "away_played": 11
             },
             "Auxerre": {
-                "total_xg": 21.593100011348724,
-                "total_xga": 29.136799782514572,
-                "matches": 19
+                "total_xg": 24.92350000143051,
+                "total_xga": 32.53959980607033,
+                "matches": 23,
+                "home_goal_ratio": 0.5882352941176471,
+                "away_goal_ratio": 0.4117647058823529,
+                "home_conceded_ratio": 0.45454545454545453,
+                "away_conceded_ratio": 0.5454545454545454,
+                "home_played": 12,
+                "away_played": 11
             },
             "Nice": {
-                "total_xg": 24.009300023317337,
-                "total_xga": 34.751000106334686,
-                "matches": 19
+                "total_xg": 30.474700182676315,
+                "total_xga": 40.78500014543533,
+                "matches": 23,
+                "home_goal_ratio": 0.5666666666666667,
+                "away_goal_ratio": 0.43333333333333335,
+                "home_conceded_ratio": 0.3953488372093023,
+                "away_conceded_ratio": 0.6046511627906976,
+                "home_played": 12,
+                "away_played": 11
+            },
+            "Paris FC": {
+                "total_xg": 27.797800362110138,
+                "total_xga": 40.11899998784065,
+                "matches": 23,
+                "home_goal_ratio": 0.5185185185185185,
+                "away_goal_ratio": 0.48148148148148145,
+                "home_conceded_ratio": 0.55,
+                "away_conceded_ratio": 0.45,
+                "home_played": 11,
+                "away_played": 12
             },
             "Angers": {
-                "total_xg": 18.3843000382185,
-                "total_xga": 32.33800023794174,
-                "matches": 19
+                "total_xg": 21.723700031638145,
+                "total_xga": 36.58640018105507,
+                "matches": 23,
+                "home_goal_ratio": 0.7272727272727273,
+                "away_goal_ratio": 0.2727272727272727,
+                "home_conceded_ratio": 0.4642857142857143,
+                "away_conceded_ratio": 0.5357142857142857,
+                "home_played": 12,
+                "away_played": 11
             },
             "Nantes": {
-                "total_xg": 18.33930015563965,
-                "total_xga": 31.07779997587204,
-                "matches": 19
+                "total_xg": 22.923600137233734,
+                "total_xga": 35.490399956703186,
+                "matches": 23,
+                "home_goal_ratio": 0.5454545454545454,
+                "away_goal_ratio": 0.45454545454545453,
+                "home_conceded_ratio": 0.55,
+                "away_conceded_ratio": 0.45,
+                "home_played": 12,
+                "away_played": 11
             },
             "Metz": {
-                "total_xg": 20.953799806535244,
-                "total_xga": 36.694399893283844,
-                "matches": 19
+                "total_xg": 22.934099823236465,
+                "total_xga": 43.043899834156036,
+                "matches": 23,
+                "home_goal_ratio": 0.45454545454545453,
+                "away_goal_ratio": 0.5454545454545454,
+                "home_conceded_ratio": 0.34615384615384615,
+                "away_conceded_ratio": 0.6538461538461539,
+                "home_played": 11,
+                "away_played": 12
             }
         },
-        "avg_xg": 1.452959355282766,
-        "avg_xga": 1.452959355282766,
-        "last_updated": "2026-01-26T16:02:32.540411"
+        "avg_xg": 1.4353966183222577,
+        "avg_xga": 1.4353966183222577,
+        "total_matches": 414,
+        "home_advantage": 1.377,
+        "last_updated": "2026-02-23T10:25:13.967792"
     },
     "Eredivisie": {
         "teams": {

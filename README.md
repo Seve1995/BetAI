@@ -1,49 +1,103 @@
-# 🎰 BetAI - Value Betting Engine
+# 🎰 BetAI — AI-Powered Value Betting Engine
 
-An AI-powered betting system that finds **+EV (positive Expected Value)** bets by combining:
-- **xG predictions** from Understat
-- **Real-time odds** from Oddsportal
-- **Poisson probability model**
-- **Kelly Criterion** for optimal stake sizing
+An automated value betting system that uses **MLE-fitted Dixon-Coles Poisson predictions** to find +EV bets across Europe's top 5 football leagues.
 
-## 🌐 Live Dashboard
+## How It Works
 
-**[seve1995.github.io/BetAI](https://seve1995.github.io/BetAI/)**
+```
+FotMob API                The Odds API
+     │                         │
+     ▼                         ▼
+Match History DB  ──▶  Live Odds Discovery
+     │                         │
+     ▼                         │
+MLE Parameter Fitter  ◀────────┘
+     │
+     ▼
+Prediction Engine (v2.2)
+     │
+     ▼
+Value Bet Identification (+EV > 5%)
+```
 
-## 🚀 Quick Start
+## Quick Start
+
+echo "ODDS_API_KEY=your_key_here" > .env
+
+# 4. Run
+python daily_runner.py --dry-run   # Preview
+python daily_runner.py             # Full run
+```
+
+## Model
+
+**Dixon-Coles corrected Poisson** using expected goals (xG) data:
+
+- Team attack/defense strength from season xG, normalized to league averages
+- Home advantage factor (1.12×)
+- Low-score correlation adjustment (ρ = -0.05)
+- Predictions for **1X2**, **Over/Under 2.5**, and **BTTS** markets
+- **Fractional Kelly Criterion** (25%) for stake sizing
+
+## Strategy Parameters
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| Min EV | 5% | Only bet when expected value is meaningful |
+| Min Edge | 3% | Filter out noise from model error |
+| Kelly Fraction | 25% | Conservative staking to survive variance |
+| Max Single Bet | 10% bankroll | Prevent catastrophic single losses |
+| Max Daily Exposure | 25% bankroll | Limit daily risk |
+| Max Odds | 6.0 | Avoid longshots where model is unreliable |
+
+## Leagues
+
+Serie A · Premier League · La Liga · Bundesliga · Ligue 1
+
+## CLI Reference
 
 ```bash
-pip install -r requirements.txt
-python value_bets.py
+python daily_runner.py                 # Full pipeline
+python daily_runner.py --dry-run       # Preview only (no state changes)
+python daily_runner.py --predictions-only  # Predictions without odds
+python daily_runner.py --resolve       # Only resolve pending bets
+python daily_runner.py --reset         # Reset experiment to fresh start
 ```
 
-## 📁 Structure
+## Dashboard
+
+Open `index.html` in a browser to see a live dashboard. It reads from `experiment_state.json` and auto-refreshes every 30 seconds.
+
+## Project Structure
 
 ```
-├── index.html             # Dashboard (GitHub Pages)
-├── value_bets.py          # Main value betting engine
-├── run_experiment.py      # Daily experiment runner
-├── experiment_state.json  # Persistent state
-├── EXPERIMENT.md          # Experiment log
-├── src/ingestion/         # Scrapers (Oddsportal, Understat)
-└── src/models/            # Prediction models
+BetAI/
+├── daily_runner.py              # Entry point — the only script you run
+├── experiment_state.json        # Persistent experiment state
+├── index.html                   # Live dashboard (dark/light theme)
+├── requirements.txt
+├── .env                         # ODDS_API_KEY (not tracked by git)
+├── CONTEXT.md                   # AI continuity context
+├── EXPERIMENT.md                # Experiment log
+├── src/
+│   ├── engine/
+│   │   ├── prediction_engine.py # Dixon-Coles Poisson model
+│   │   └── stats_manager.py     # Team xG stats + fuzzy matching
+│   ├── ingestion/
+│   │   ├── fotmob_scraper.py    # FotMob API (xG, matches)
+│   │   └── odds_api.py          # The Odds API (odds, scores)
+│   └── core/
+│       └── config.py            # Centralized settings
+└── archive/                     # Deprecated scripts (kept for reference)
 ```
 
-## 📊 The Math
+## Data Sources
 
-```
-EV = (our_prob × (odds - 1)) - (1 - our_prob)
-```
-Only bets where **EV > 5%** and **Edge > 3%** are recommended.
+| Source | Purpose | Cost |
+|--------|---------|------|
+| [FotMob](https://www.fotmob.com) | Team xG stats, match schedules | Free |
+| [The Odds API](https://the-odds-api.com) | Live odds, match scores | Free tier (500 req/month) |
 
-## 🎰 1-Month Experiment
+## License
 
-Running Jan 25 - Feb 25, 2026:
-- Starting: €100
-- Day 1: 6 bets placed, €24.84 staked
-
-See [EXPERIMENT.md](./EXPERIMENT.md) for updates.
-
-## ⚠️ Disclaimer
-
-Educational purposes only. Bet responsibly.
+MIT

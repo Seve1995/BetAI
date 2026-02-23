@@ -574,7 +574,7 @@
             <h2>📝 Recent Bets</h2>
             <div id="betsContainer">
                 <div class="empty-state">
-                    <p>No bets yet. Run <code>python run_experiment.py</code></p>
+                    <p>No bets yet. Run <code>python daily_runner.py</code></p>
                 </div>
             </div>
         </div>
@@ -610,7 +610,7 @@
         </div>
 
         <footer>
-            <p>🎰 Jan 25 → Feb 25, 2026 | Data: Understat + Oddsportal</p>
+            <p>🎰 Feb 23 → Mar 25, 2026 | Data: FotMob + The Odds API</p>
         </footer>
     </div>
 
@@ -696,7 +696,7 @@
             const allBets = [...pending, ...completed].slice(-8).reverse();
 
             if (allBets.length === 0) {
-                container.innerHTML = '<div class="empty-state"><p>No bets yet. Run <code>python run_experiment.py</code></p></div>';
+                container.innerHTML = '<div class="empty-state"><p>No bets yet. Run <code>python daily_runner.py</code></p></div>';
                 return;
             }
 

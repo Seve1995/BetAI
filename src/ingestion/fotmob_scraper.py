@@ -216,6 +216,124 @@ class FotMobScraper:
             print(f"Error fetching today's matches: {e}")
             return []
 
+    def get_home_away_goal_splits(self, league_name: str) -> dict | None:
+        """
+        Fetch home/away goal splits from FotMob league standings.
+        
+        Uses the home/away tables (which have goals scored/conceded per venue)
+        to compute venue ratios. These ratios are applied to aggregate xG 
+        to estimate venue-specific xG without extra API calls.
+        
+        Returns:
+            Dict keyed by team shortName: {
+                'home_goals': int, 'home_conceded': int, 'home_played': int,
+                'away_goals': int, 'away_conceded': int, 'away_played': int,
+                'home_goal_ratio': float,  # home_goals / total_goals
+                'away_goal_ratio': float,  # away_goals / total_goals
+            }
+            Plus 'league_home_advantage': float (empirical HA from actual goals)
+        """
+        league_id = self.LEAGUE_IDS.get(league_name)
+        if not league_id:
+            return None
+        
+        url = f"{self.BASE_URL}/leagues?id={league_id}"
+        try:
+            response = self.session.get(url)
+            response.raise_for_status()
+            data = response.json()
+            
+            tables = data.get('table', [])
+            if not tables:
+                return None
+            
+            data_obj = tables[0].get('data', {})
+            inner_table = data_obj.get('table', {})
+            
+            home_table = inner_table.get('home', [])
+            away_table = inner_table.get('away', [])
+            
+            if not home_table or not away_table:
+                return None
+            
+            # Build per-team home stats (keyed by team ID for accuracy)
+            team_venue = {}
+            total_home_goals = 0
+            total_away_goals = 0
+            total_home_matches = 0
+            
+            for entry in home_table:
+                tid = entry.get('id')
+                name = entry.get('shortName') or entry.get('name')
+                scores = entry.get('scoresStr', '0-0').split('-')
+                goals_for = int(scores[0].strip()) if len(scores) == 2 else 0
+                goals_against = int(scores[1].strip()) if len(scores) == 2 else 0
+                played = entry.get('played', 0)
+                
+                team_venue[tid] = {
+                    'name': name,
+                    'home_goals': goals_for,
+                    'home_conceded': goals_against,
+                    'home_played': played,
+                }
+                total_home_goals += goals_for
+                total_home_matches += played
+            
+            for entry in away_table:
+                tid = entry.get('id')
+                name = entry.get('shortName') or entry.get('name')
+                scores = entry.get('scoresStr', '0-0').split('-')
+                goals_for = int(scores[0].strip()) if len(scores) == 2 else 0
+                goals_against = int(scores[1].strip()) if len(scores) == 2 else 0
+                played = entry.get('played', 0)
+                
+                if tid in team_venue:
+                    team_venue[tid]['away_goals'] = goals_for
+                    team_venue[tid]['away_conceded'] = goals_against
+                    team_venue[tid]['away_played'] = played
+                total_away_goals += goals_for
+            
+            # Calculate ratios for each team
+            result = {}
+            for tid, tv in team_venue.items():
+                if 'away_goals' not in tv:
+                    continue
+                
+                total_goals = tv['home_goals'] + tv['away_goals']
+                total_conceded = tv['home_conceded'] + tv['away_conceded']
+                
+                # Ratio of goals scored at home vs total (for xG splitting)
+                home_goal_ratio = tv['home_goals'] / total_goals if total_goals > 0 else 0.55
+                away_goal_ratio = tv['away_goals'] / total_goals if total_goals > 0 else 0.45
+                
+                home_conceded_ratio = tv['home_conceded'] / total_conceded if total_conceded > 0 else 0.45
+                away_conceded_ratio = tv['away_conceded'] / total_conceded if total_conceded > 0 else 0.55
+                
+                result[tv['name']] = {
+                    **tv,
+                    'home_goal_ratio': home_goal_ratio,
+                    'away_goal_ratio': away_goal_ratio,
+                    'home_conceded_ratio': home_conceded_ratio,
+                    'away_conceded_ratio': away_conceded_ratio,
+                }
+
+            # Empirical league home advantage: avg home goals / avg away goals
+            if total_home_matches > 0 and total_away_goals > 0:
+                avg_home = total_home_goals / total_home_matches
+                avg_away = total_away_goals / total_home_matches  # same # of matches
+                league_ha = avg_home / avg_away if avg_away > 0 else 1.15
+            else:
+                league_ha = 1.15
+            
+            return {
+                'teams': result,
+                'league_home_advantage': round(league_ha, 3),
+            }
+        
+        except Exception as e:
+            print(f"Error fetching home/away splits for {league_name}: {e}")
+            return None
+
 if __name__ == "__main__":
     scraper = FotMobScraper()
     print("Testing FotMob Scraper...")

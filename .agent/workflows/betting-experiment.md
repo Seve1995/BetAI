@@ -4,50 +4,50 @@ description: How to run the daily betting experiment
 
 # Daily Betting Experiment Workflow
 
-## Prerequisites
-- Python virtual environment at `./venv`
-- Chrome browser installed (for Selenium)
-
-## Steps
-
 // turbo-all
 
-### 1. Read Context
-First, read the context file to understand the current state:
-```
-View file: c:/Users/Seve/BetAI/betting-engine/CONTEXT.md
-```
+## Prerequisites
+- Python virtual environment activated
+- `.env` file with `ODDS_API_KEY` set (free at https://the-odds-api.com)
 
-### 2. Check Current State
+## Daily Steps
+
+1. Read the current experiment context:
 ```bash
-cd c:/Users/Seve/BetAI/betting-engine
-cat experiment_state.json
+cat c:/Users/Seve/BetAI/CONTEXT.md
 ```
 
-### 3. Ask About Pending Bets
-If there are pending bets from previous days, ask the user:
-- "What were the results of yesterday's bets? (W=win, L=loss)"
-- Update the state accordingly
-
-### 4. Run Daily Script
+2. Check current experiment state:
 ```bash
-cd c:/Users/Seve/BetAI/betting-engine
-./venv/Scripts/python.exe run_experiment.py
+cat c:/Users/Seve/BetAI/experiment_state.json
 ```
 
-### 5. Update Documentation
-After running, update:
-- `EXPERIMENT.md` with today's bets
-- `CONTEXT.md` with any learnings
-
-### 6. Open Dashboard
+3. Run the daily experiment pipeline:
 ```bash
-cd c:/Users/Seve/BetAI/betting-engine
-start dashboard.html
+cd c:/Users/Seve/BetAI && .venv/Scripts/python.exe daily_runner.py
+```
+
+4. For dry-run preview (no bets placed):
+```bash
+cd c:/Users/Seve/BetAI && .venv/Scripts/python.exe daily_runner.py --dry-run
+```
+
+5. To only resolve pending bets:
+```bash
+cd c:/Users/Seve/BetAI && .venv/Scripts/python.exe daily_runner.py --resolve
+```
+
+6. To reset the experiment fresh:
+```bash
+cd c:/Users/Seve/BetAI && .venv/Scripts/python.exe daily_runner.py --reset
 ```
 
 ## Key Files
-- `run_experiment.py` - Main daily script
-- `experiment_state.json` - Persistent state (bankroll, bets)
-- `dashboard.html` - Visual progress tracker
-- `CONTEXT.md` - Memory for AI continuity
+- `daily_runner.py` - Main entry point (the ONLY script you need to run)
+- `experiment_state.json` - Persistent experiment state
+- `CONTEXT.md` - AI continuity context
+- `EXPERIMENT.md` - Experiment documentation/log
+- `src/engine/prediction_engine.py` - Poisson prediction model
+- `src/engine/stats_manager.py` - Team xG stats management
+- `src/ingestion/odds_api.py` - The Odds API client (free tier)
+- `src/ingestion/fotmob_scraper.py` - FotMob xG/match data
