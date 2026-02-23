@@ -24,7 +24,7 @@
                 "away_played": 13
             },
             "Milan": {
-                "total_xg": 43.353900134563446,
+                "total_xg": 42.933400094509125,
                 "total_xga": 29.228099942207336,
                 "matches": 26,
                 "home_goal_ratio": 0.43902439024390244,
@@ -80,7 +80,7 @@
             },
             "Fiorentina": {
                 "total_xg": 38.608799666166306,
-                "total_xga": 34.86059981584549,
+                "total_xga": 34.44009977579117,
                 "matches": 25,
                 "home_goal_ratio": 0.5862068965517241,
                 "away_goal_ratio": 0.41379310344827586,
@@ -222,11 +222,11 @@
                 "away_played": 12
             }
         },
-        "avg_xg": 1.2672536812520536,
-        "avg_xga": 1.2672536812520536,
+        "avg_xg": 1.2664387586938088,
+        "avg_xga": 1.2664387586938088,
         "total_matches": 516,
         "home_advantage": 1.094,
-        "last_updated": "2026-02-23T10:25:12.465926"
+        "last_updated": "2026-02-23T18:17:12.329654"
     },
     "Premier League": {
         "teams": {
@@ -431,7 +431,7 @@
         "avg_xga": 1.386847407805423,
         "total_matches": 540,
         "home_advantage": 1.22,
-        "last_updated": "2026-02-23T10:25:12.553109"
+        "last_updated": "2026-02-23T18:17:13.018941"
     },
     "La Liga": {
         "teams": {
@@ -480,8 +480,8 @@
                 "away_played": 12
             },
             "Villarreal": {
-                "total_xg": 38.59610027074814,
-                "total_xga": 30.03239957988262,
+                "total_xg": 38.88250035047531,
+                "total_xga": 30.017899557948112,
                 "matches": 25,
                 "home_goal_ratio": 0.6170212765957447,
                 "away_goal_ratio": 0.3829787234042553,
@@ -524,8 +524,8 @@
                 "away_played": 12
             },
             "Valencia": {
-                "total_xg": 29.951599821448326,
-                "total_xga": 32.70350068807602,
+                "total_xg": 29.937099799513817,
+                "total_xga": 32.98990076780319,
                 "matches": 25,
                 "home_goal_ratio": 0.5769230769230769,
                 "away_goal_ratio": 0.4230769230769231,
@@ -656,11 +656,11 @@
                 "away_played": 12
             }
         },
-        "avg_xg": 1.380490122483142,
-        "avg_xga": 1.380490122483142,
+        "avg_xg": 1.3810383080835305,
+        "avg_xga": 1.3810383080835305,
         "total_matches": 496,
         "home_advantage": 1.371,
-        "last_updated": "2026-02-23T10:25:12.625783"
+        "last_updated": "2026-02-23T18:17:13.645179"
     },
     "Bundesliga": {
         "teams": {
@@ -861,7 +861,7 @@
         "avg_xga": 1.508470868402459,
         "total_matches": 412,
         "home_advantage": 1.226,
-        "last_updated": "2026-02-23T10:25:13.474894"
+        "last_updated": "2026-02-23T18:17:14.370761"
     },
     "Ligue 1": {
         "teams": {
@@ -1062,7 +1062,7 @@
         "avg_xga": 1.4353966183222577,
         "total_matches": 414,
         "home_advantage": 1.377,
-        "last_updated": "2026-02-23T10:25:13.967792"
+        "last_updated": "2026-02-23T18:17:15.055325"
     },
     "Eredivisie": {
         "teams": {

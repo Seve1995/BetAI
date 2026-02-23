@@ -5,9 +5,9 @@
     "initial_bankroll": 100.0
   },
   "current_state": {
-    "bankroll": 100.0,
-    "day": 1,
-    "last_run": null
+    "bankroll": 80.67,
+    "day": 2,
+    "last_run": "2026-02-23"
   },
   "strategy": {
     "version": "2.2",
@@ -19,18 +19,89 @@
     "max_odds": 6.0
   },
   "stats": {
-    "total_bets": 0,
+    "total_bets": 5,
     "wins": 0,
     "losses": 0,
-    "pending": 0,
-    "total_staked": 0.0,
+    "pending": 5,
+    "total_staked": 19.33,
     "total_returns": 0.0,
     "total_profit": 0.0
   },
-  "pending_bets": [],
+  "pending_bets": [
+    {
+      "date": "2026-02-23",
+      "match": "Everton vs Man United",
+      "league": "Premier League",
+      "tip": "X (Draw)",
+      "market": "X",
+      "odds": 3.96,
+      "stake": 2.41,
+      "ev": 0.28537714386953617,
+      "edge": 0.07206493532058994,
+      "our_prob": 0.3245901878458425,
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-02-23",
+      "match": "Bologna vs Udinese",
+      "league": "Serie A",
+      "tip": "2 (Udinese)",
+      "market": "2",
+      "odds": 4.6,
+      "stake": 1.75,
+      "ev": 0.25252443228019017,
+      "edge": 0.054896615713084795,
+      "our_prob": 0.2722879200609109,
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-02-23",
+      "match": "Everton vs Man United",
+      "league": "Premier League",
+      "tip": "Under 2.5 Goals",
+      "market": "Under 2.5",
+      "odds": 2.25,
+      "stake": 4.31,
+      "ev": 0.2155340660633126,
+      "edge": 0.09579291825036118,
+      "our_prob": 0.5402373626948056,
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-02-23",
+      "match": "Bologna vs Udinese",
+      "league": "Serie A",
+      "tip": "Over 2.5 Goals",
+      "market": "Over 2.5",
+      "odds": 2.16,
+      "stake": 4.48,
+      "ev": 0.207743523907034,
+      "edge": 0.09617755736436762,
+      "our_prob": 0.5591405203273305,
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-02-23",
+      "match": "Deportivo Alaves vs Girona",
+      "league": "La Liga",
+      "tip": "Under 2.5 Goals",
+      "market": "Under 2.5",
+      "odds": 1.67,
+      "stake": 6.38,
+      "ev": 0.17098289514077536,
+      "edge": 0.10238496715016487,
+      "our_prob": 0.7011873623597458,
+      "status": "PENDING"
+    }
+  ],
   "completed_bets": [],
+  "bankroll_history": [
+    {
+      "date": "2026-02-23",
+      "bankroll": 80.67
+    }
+  ],
   "learnings": [
-    "v2.1: Venue-specific ratings, Bayesian shrinkage (k=5), O/U 2.5 markets, per-league HA",
-    "v2.2: Learning Engine enabled - Dixon-Coles MLE fitting on 1,200+ historical matches"
+    "v2.2: MLE-fitted Dixon-Coles, auto-resolve, 1X2 dedup, BTTS market, odds caching, smart BTTS filtering"
   ]
 }

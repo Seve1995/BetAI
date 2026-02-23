@@ -216,6 +216,68 @@ class FotMobScraper:
             print(f"Error fetching today's matches: {e}")
             return []
 
+    def get_match_results_for_day(self, date_str=None):
+        """
+        Fetch finished match results for a given date.
+        
+        Returns list of dicts: {league, home, away, home_goals, away_goals, finished}
+        Used for automatic bet resolution.
+        """
+        if not date_str:
+            date_str = datetime.now().strftime("%Y%m%d")
+        
+        # Convert YYYY-MM-DD to YYYYMMDD if needed
+        date_str = date_str.replace("-", "")
+        
+        url = f"{self.BASE_URL}/data/matches?date={date_str}"
+        try:
+            response = self.session.get(url)
+            response.raise_for_status()
+            data = response.json()
+            
+            results = []
+            for league_data in data.get('leagues', []):
+                league_id = league_data.get('id')
+                
+                mapped_name = None
+                for name, lid in self.LEAGUE_IDS.items():
+                    if lid == league_id:
+                        mapped_name = name
+                        break
+                
+                if not mapped_name:
+                    continue
+                
+                for match in league_data.get('matches', []):
+                    status = match.get('status', {})
+                    if not status.get('finished'):
+                        continue
+                    
+                    score_str = status.get('scoreStr', '')
+                    if not score_str or '-' not in score_str:
+                        continue
+                    
+                    parts = score_str.split('-')
+                    try:
+                        hg = int(parts[0].strip())
+                        ag = int(parts[1].strip())
+                    except (ValueError, IndexError):
+                        continue
+                    
+                    results.append({
+                        'league': mapped_name,
+                        'home': match.get('home', {}).get('name', ''),
+                        'away': match.get('away', {}).get('name', ''),
+                        'home_goals': hg,
+                        'away_goals': ag,
+                        'finished': True,
+                    })
+            
+            return results
+        except Exception as e:
+            print(f"Error fetching match results: {e}")
+            return []
+
     def get_home_away_goal_splits(self, league_name: str) -> dict | None:
         """
         Fetch home/away goal splits from FotMob league standings.

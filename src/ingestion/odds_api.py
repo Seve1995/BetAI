@@ -12,6 +12,8 @@ Usage:
 """
 
 import os
+import json
+import time
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
@@ -229,11 +231,26 @@ class OddsAPIClient:
     
     def get_all_odds(self, markets: str = "h2h,totals") -> dict:
         """
-        Get odds for all tracked leagues.
+        Get odds for all tracked leagues. Uses 1-hour cache to save credits.
         
         Returns:
             Dict: {'Premier League': [matches...], 'Serie A': [matches...], ...}
         """
+        cache_file = os.path.join("data", "odds_cache.json")
+        
+        # Check cache (1 hour TTL)
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, 'r') as f:
+                    cache = json.load(f)
+                age_min = (time.time() - cache.get('timestamp', 0)) / 60
+                if age_min < 60 and cache.get('markets') == markets:
+                    print(f"   📦 Using cached odds ({age_min:.0f}m old, <60m TTL)")
+                    return cache.get('data', {})
+            except (json.JSONDecodeError, KeyError):
+                pass
+        
+        # Fetch fresh odds
         all_odds = {}
         for league in self.SPORT_KEYS:
             odds = self.get_odds(league, markets)
@@ -245,6 +262,18 @@ class OddsAPIClient:
         
         if self.remaining_credits is not None:
             print(f"   📊 Credits remaining: {self.remaining_credits}")
+        
+        # Save to cache
+        try:
+            os.makedirs("data", exist_ok=True)
+            with open(cache_file, 'w') as f:
+                json.dump({
+                    'timestamp': time.time(),
+                    'markets': markets,
+                    'data': all_odds
+                }, f)
+        except Exception:
+            pass
         
         return all_odds
     
@@ -279,12 +308,17 @@ class OddsAPIClient:
             all_scores[league] = scores
         return all_scores
     
-    def find_match_odds(self, home: str, away: str, league: str, all_odds: dict) -> dict | None:
+    def find_match_odds(self, home: str, away: str, league: str, all_odds: dict,
+                        btts_prob: float = None) -> dict | None:
         """
         Find odds for a specific match using alias-aware name matching.
+        Fetches BTTS via per-event endpoint only if model has strong signal.
+        
+        Args:
+            btts_prob: Model's BTTS probability. Only fetches BTTS odds if >0.58 or <0.38.
         
         Returns:
-            Dict with keys '1', 'X', '2', 'over_25', 'under_25' or None
+            Dict with keys '1', 'X', '2', 'over_25', 'under_25', 'btts_yes', 'btts_no' or None
         """
         league_odds = all_odds.get(league, [])
         
@@ -301,6 +335,7 @@ class OddsAPIClient:
                 best_odds = {
                     '1': None, 'X': None, '2': None,
                     'over_25': None, 'under_25': None,
+                    'btts_yes': None, 'btts_no': None,
                 }
                 
                 for bookmaker in event.get('bookmakers', []):
@@ -336,11 +371,60 @@ class OddsAPIClient:
                                     elif name == 'under':
                                         if best_odds['under_25'] is None or price > best_odds['under_25']:
                                             best_odds['under_25'] = price
+                        
+                        elif mkey == 'btts':
+                            for outcome in market.get('outcomes', []):
+                                name = outcome.get('name', '').lower()
+                                price = outcome.get('price')
+                                
+                                if name == 'yes':
+                                    if best_odds['btts_yes'] is None or price > best_odds['btts_yes']:
+                                        best_odds['btts_yes'] = price
+                                elif name == 'no':
+                                    if best_odds['btts_no'] is None or price > best_odds['btts_no']:
+                                        best_odds['btts_no'] = price
                 
                 if any(v is not None for v in best_odds.values()):
+                    # Fetch BTTS via per-event endpoint (only for strong signals)
+                    if best_odds['btts_yes'] is None and btts_prob is not None:
+                        has_strong_signal = btts_prob > 0.58 or btts_prob < 0.38
+                        if has_strong_signal:
+                            event_id = event.get('id')
+                            sport_key = self.SPORT_KEYS.get(league)
+                            if event_id and sport_key:
+                                btts = self._fetch_event_btts(sport_key, event_id)
+                                if btts:
+                                    best_odds.update(btts)
                     return best_odds
         
         return None
+    
+    def _fetch_event_btts(self, sport_key: str, event_id: str) -> dict | None:
+        """Fetch BTTS odds for a specific event via per-event endpoint (1 credit)."""
+        data = self._request(f"/sports/{sport_key}/events/{event_id}/odds", {
+            'regions': 'eu',
+            'markets': 'btts',
+            'oddsFormat': 'decimal',
+        })
+        if not data:
+            return None
+        
+        btts_odds = {}
+        for bookmaker in data.get('bookmakers', []):
+            for market in bookmaker.get('markets', []):
+                if market.get('key') != 'btts':
+                    continue
+                for outcome in market.get('outcomes', []):
+                    name = outcome.get('name', '').lower()
+                    price = outcome.get('price')
+                    if name == 'yes':
+                        if btts_odds.get('btts_yes') is None or price > btts_odds['btts_yes']:
+                            btts_odds['btts_yes'] = price
+                    elif name == 'no':
+                        if btts_odds.get('btts_no') is None or price > btts_odds['btts_no']:
+                            btts_odds['btts_no'] = price
+        
+        return btts_odds if btts_odds else None
     
     def is_configured(self) -> bool:
         """Check if the API key is set."""

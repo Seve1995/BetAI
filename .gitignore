@@ -22,6 +22,8 @@ data/*.db
 data/raw_csv/
 data/team_stats.json
 data/fitted_params.json
+data/odds_cache.json
+nul
 
 # Archive (deprecated scripts)
 archive/

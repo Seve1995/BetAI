@@ -96,7 +96,18 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
-    """Save experiment state to JSON file."""
+    """Save experiment state to JSON file, tracking bankroll history."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    bankroll = round(state['current_state'].get('bankroll', 100.0), 2)
+    
+    # Track daily bankroll snapshots for charting
+    history = state.setdefault('bankroll_history', [])
+    # Only add one entry per day (update if already exists)
+    if history and history[-1].get('date') == today:
+        history[-1]['bankroll'] = bankroll
+    else:
+        history.append({'date': today, 'bankroll': bankroll})
+    
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2, default=str)
 
@@ -135,12 +146,53 @@ def reset_experiment(state: dict) -> dict:
 
 # ─── Step 1: Resolve Pending Bets ────────────────────────────────────────────
 
+def _fuzzy_match_teams(bet_match: str, result_home: str, result_away: str) -> bool:
+    """Check if a bet's match name matches a result's team names."""
+    bet_lower = bet_match.lower()
+    home_lower = result_home.lower()
+    away_lower = result_away.lower()
+    
+    # Direct match: "Bologna vs Udinese"
+    if home_lower in bet_lower and away_lower in bet_lower:
+        return True
+    
+    # Partial match for short names
+    home_parts = home_lower.split()
+    away_parts = away_lower.split()
+    if any(p in bet_lower for p in home_parts if len(p) > 3) and \
+       any(p in bet_lower for p in away_parts if len(p) > 3):
+        return True
+    
+    return False
+
+
+def _evaluate_bet(bet: dict, home_goals: int, away_goals: int) -> str:
+    """Determine if a bet won or lost given the final score."""
+    market = bet.get('market', '1X2')
+    total_goals = home_goals + away_goals
+    
+    if market == '1':  # Home win
+        return 'WIN' if home_goals > away_goals else 'LOSS'
+    elif market == 'X':  # Draw
+        return 'WIN' if home_goals == away_goals else 'LOSS'
+    elif market == '2':  # Away win
+        return 'WIN' if away_goals > home_goals else 'LOSS'
+    elif market == 'Over 2.5':
+        return 'WIN' if total_goals > 2.5 else 'LOSS'
+    elif market == 'Under 2.5':
+        return 'WIN' if total_goals < 2.5 else 'LOSS'
+    elif market == 'BTTS Yes':
+        return 'WIN' if home_goals > 0 and away_goals > 0 else 'LOSS'
+    elif market == 'BTTS No':
+        return 'WIN' if home_goals == 0 or away_goals == 0 else 'LOSS'
+    
+    return 'PENDING'
+
+
 def resolve_pending_bets(state: dict, scraper: FotMobScraper) -> int:
     """
     Automatically resolve pending bets using FotMob match results.
-    
-    Returns:
-        Number of bets resolved
+    Falls back to manual input only if FotMob can't find the match.
     """
     pending = state.get("pending_bets", [])
     if not pending:
@@ -149,22 +201,48 @@ def resolve_pending_bets(state: dict, scraper: FotMobScraper) -> int:
     
     print(f"\n   📋 Resolving {len(pending)} pending bets...")
     
-    # Fetch recent results from FotMob
-    # Check last 3 days to catch weekend matches
+    # Fetch results for all relevant dates
+    bet_dates = set(b.get('date', '') for b in pending)
+    all_results = []
+    for d in bet_dates:
+        results = scraper.get_match_results_for_day(d)
+        all_results.extend(results)
+    
     resolved_count = 0
     still_pending = []
     
     for bet in pending:
-        bet_date = bet.get('date', '')
         match_name = bet.get('match', '')
-        bet_type = bet.get('type', '1X2')  # Default to 1X2
-        tip = bet.get('tip', '')
+        bet_date = bet.get('date', '')
         
-        # Try to find the result via FotMob
-        result = _check_match_result(scraper, match_name, bet_date, tip, bet_type)
+        # Try auto-resolution from FotMob results
+        result = None
+        for r in all_results:
+            if _fuzzy_match_teams(match_name, r['home'], r['away']):
+                result = _evaluate_bet(bet, r['home_goals'], r['away_goals'])
+                score_str = f"{r['home_goals']}-{r['away_goals']}"
+                break
+        
+        if result is None:
+            # Match not finished yet or not found on FotMob
+            if bet_date == datetime.now().strftime("%Y-%m-%d"):
+                # Today's match — just keep pending, don't ask
+                still_pending.append(bet)
+                print(f"   ⏳ PENDING: {match_name} (today, not finished)")
+                continue
+            else:
+                # Old match not found — ask manually
+                print(f"\n   ❓ {match_name} ({bet_date}) — not found on FotMob")
+                print(f"      Tip: {bet.get('tip', '')} @ {bet.get('odds', '')}")
+                while True:
+                    user_input = input("      Result (W/L/P/S): ").strip().upper()
+                    if user_input in ('W', 'L', 'P', 'S'):
+                        break
+                result = {'W': 'WIN', 'L': 'LOSS'}.get(user_input, 'PENDING')
+                score_str = '?'
         
         if result == 'WIN':
-            profit = bet['stake'] * (bet['odds'] - 1)
+            profit = round(bet['stake'] * (bet['odds'] - 1), 2)
             state['current_state']['bankroll'] += profit + bet['stake']
             state['stats']['wins'] += 1
             state['stats']['total_returns'] += profit + bet['stake']
@@ -173,8 +251,7 @@ def resolve_pending_bets(state: dict, scraper: FotMobScraper) -> int:
             bet['profit'] = profit
             state['completed_bets'].append(bet)
             resolved_count += 1
-            print(f"   ✅ WIN: {match_name} → +€{profit:.2f}")
-            
+            print(f"   ✅ WIN: {match_name} ({score_str}) → +€{profit:.2f}")
         elif result == 'LOSS':
             state['stats']['losses'] += 1
             state['stats']['total_profit'] -= bet['stake']
@@ -182,44 +259,17 @@ def resolve_pending_bets(state: dict, scraper: FotMobScraper) -> int:
             bet['profit'] = -bet['stake']
             state['completed_bets'].append(bet)
             resolved_count += 1
-            print(f"   ❌ LOSS: {match_name} → -€{bet['stake']:.2f}")
-            
+            print(f"   ❌ LOSS: {match_name} ({score_str}) → -€{bet['stake']:.2f}")
         else:
-            # Still pending or match not found
             still_pending.append(bet)
             print(f"   ⏳ PENDING: {match_name}")
     
     state['pending_bets'] = still_pending
     state['stats']['pending'] = len(still_pending)
+    # Round bankroll to avoid floating point drift
+    state['current_state']['bankroll'] = round(state['current_state']['bankroll'], 2)
     
     return resolved_count
-
-
-def _check_match_result(scraper: FotMobScraper, match_name: str, 
-                         bet_date: str, tip: str, bet_type: str) -> str:
-    """
-    Check match result via FotMob. 
-    Falls back to manual input if automated check fails.
-    
-    Returns: 'WIN', 'LOSS', or 'PENDING'
-    """
-    # For now, ask user for results (automated FotMob result checking 
-    # would need specific match IDs which we don't always have)
-    print(f"\n   Match: {match_name} ({bet_date})")
-    print(f"   Tip: {tip} @ {bet_type}")
-    
-    while True:
-        result = input("   Result (W=win, L=loss, P=pending, S=skip): ").strip().upper()
-        if result in ('W', 'L', 'P', 'S'):
-            break
-        print("   Invalid input. Use W, L, P, or S.")
-    
-    if result == 'W':
-        return 'WIN'
-    elif result == 'L':
-        return 'LOSS'
-    else:
-        return 'PENDING'
 
 
 # ─── Step 2-3: Fetch Matches & Update Stats ──────────────────────────────────
@@ -275,7 +325,7 @@ def find_value_bets(matches: list, engine: PredictionEngine,
     all_odds = {}
     if odds_client.is_configured():
         print("\n📊 Fetching live odds from The Odds API...")
-        all_odds = odds_client.get_all_odds()
+        all_odds = odds_client.get_all_odds(markets="h2h,totals")
     else:
         print("\n⚠️  No ODDS_API_KEY configured. Running predictions only (no EV calculation).")
         print("   Get a free key at: https://the-odds-api.com")
@@ -304,7 +354,8 @@ def find_value_bets(matches: list, engine: PredictionEngine,
             # Try to find odds
             match_odds = None
             if all_odds:
-                match_odds = odds_client.find_match_odds(home, away, league, all_odds)
+                match_odds = odds_client.find_match_odds(home, away, league, all_odds,
+                                                          btts_prob=pred.get('btts'))
             
             if match_odds:
                 matches_with_odds += 1
@@ -344,7 +395,8 @@ def find_value_bets(matches: list, engine: PredictionEngine,
                     continue
                 
                 # Build odds directly from this event
-                match_odds = odds_client.find_match_odds(home, away, league, {league: [event]})
+                match_odds = odds_client.find_match_odds(home, away, league, {league: [event]},
+                                                          btts_prob=pred.get('btts'))
                 if not match_odds:
                     continue
                 
@@ -368,6 +420,23 @@ def find_value_bets(matches: list, engine: PredictionEngine,
     
     # Sort by EV and enforce daily stake limit
     all_value_bets.sort(key=lambda x: x['ev'], reverse=True)
+    
+    # --- Deduplicate: max 1 bet per 1X2 market per match ---
+    seen_1x2 = set()  # track (match_name, '1X2') combos
+    deduped = []
+    for bet in all_value_bets:
+        match_key = bet['match']
+        market = bet['market']
+        
+        if market in ('1', 'X', '2'):
+            # Only take the highest-EV 1X2 bet per match
+            if match_key in seen_1x2:
+                continue
+            seen_1x2.add(match_key)
+        
+        deduped.append(bet)
+    
+    all_value_bets = deduped
     
     max_daily = bankroll * strategy['max_daily_stake_pct']
     selected = []
@@ -447,8 +516,8 @@ def display_value_bets(value_bets: list, bankroll: float):
 
 # ─── Place Bets ───────────────────────────────────────────────────────────────
 
-def place_bets(state: dict, value_bets: list):
-    """Record bets in experiment state."""
+def place_bets(state: dict, value_bets: list, history: MatchHistory = None):
+    """Record bets in experiment state and log predictions to DB."""
     today = datetime.now().strftime("%Y-%m-%d")
     
     for bet in value_bets:
@@ -471,9 +540,41 @@ def place_bets(state: dict, value_bets: list):
         state['stats']['pending'] += 1
         state['stats']['total_staked'] += bet['stake']
         state['current_state']['bankroll'] -= bet['stake']
+        
+        # Log prediction to match history DB
+        if history and bet.get('prediction'):
+            home = bet.get('home', '')
+            away = bet.get('away', '')
+            match_id = history.insert_match(
+                date=today, league=bet['league'],
+                home=home, away=away, status='scheduled'
+            )
+            if match_id > 0:
+                history.log_prediction(
+                    match_id, bet['prediction'],
+                    bet_odds=bet['odds'], bet_market=bet.get('market')
+                )
+    
+    # Round bankroll
+    state['current_state']['bankroll'] = round(state['current_state']['bankroll'], 2)
 
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
+
+def _params_are_stale(fitted_params: dict) -> bool:
+    """Check if fitted parameters are older than 1 day."""
+    for league, p in fitted_params.items():
+        fitted_at = p.get('fitted_at', '')
+        if fitted_at:
+            try:
+                dt = datetime.fromisoformat(fitted_at)
+                age_hours = (datetime.now() - dt).total_seconds() / 3600
+                if age_hours > 24:
+                    return True
+            except (ValueError, TypeError):
+                return True
+    return not fitted_params  # Stale if empty
+
 
 def main():
     parser = argparse.ArgumentParser(description="BetAI Daily Experiment Runner")
@@ -482,8 +583,9 @@ def main():
     parser.add_argument('--reset', action='store_true', help="Reset experiment to fresh start")
     parser.add_argument('--predictions-only', action='store_true', help="Show predictions without odds")
     parser.add_argument('--seed', action='store_true', help="Seed match history DB from FotMob")
-    parser.add_argument('--fit', action='store_true', help="Fit Dixon-Coles parameters via MLE")
+    parser.add_argument('--fit', action='store_true', help="Force refit of Dixon-Coles parameters")
     parser.add_argument('--calibrate', action='store_true', help="Show model calibration report")
+    parser.add_argument('--force', action='store_true', help="Force run even if already run today")
     args = parser.parse_args()
     
     today = datetime.now().strftime("%Y-%m-%d")
@@ -495,7 +597,7 @@ def main():
     history = MatchHistory()
     odds_client = OddsAPIClient()
     
-    # --- Learning engine commands ---
+    # --- Standalone commands (these exit early) ---
     if args.seed:
         print("\n🌱 Seeding match history database from FotMob...")
         count = history.seed_from_fotmob(scraper, TRACKED_LEAGUES)
@@ -504,18 +606,11 @@ def main():
         print(f"   Leagues: {', '.join(summary['leagues'])}")
         return
     
-    if args.fit:
-        fitter = ModelFitter(history)
-        fitter.fit_all_leagues(TRACKED_LEAGUES)
-        fitter.save()
-        return
-    
     if args.calibrate:
         report = calibration.generate_report(history)
         print(report)
         return
     
-    # Reset if requested
     if args.reset:
         confirm = input("⚠️  Reset experiment? All bets and history will be lost. (y/n): ").strip().lower()
         if confirm == 'y':
@@ -524,9 +619,34 @@ def main():
             print("✅ Experiment reset! New start date:", today)
         return
     
-    # Load fitted parameters if available
+    # --- Unified daily workflow ---
+    # Idempotency: skip if already run today (unless --force or --resolve)
+    last_run = state['current_state'].get('last_run')
+    if last_run == today and not args.force and not args.resolve and not args.fit:
+        print(f"\n⏭️  Already ran today ({today}). Use --force to re-run or --resolve to check bets.")
+        return
+    
+    # Step 0: Auto-fit if params are stale or --fit flag
     fitter = ModelFitter(history)
     fitted_params = fitter.load()
+    
+    if args.fit or _params_are_stale(fitted_params):
+        reason = "forced" if args.fit else "stale (>24h old)"
+        print(f"\n🧠 Parameters are {reason}. Updating...")
+        
+        # Auto-reseed with latest results
+        print("   🌱 Syncing match database...")
+        history.seed_from_fotmob(scraper, TRACKED_LEAGUES)
+        
+        # Refit
+        fitter = ModelFitter(history)
+        fitter.fit_all_leagues(TRACKED_LEAGUES)
+        fitter.save()
+        fitted_params = fitter.fitted_params
+        
+        if args.fit:
+            return  # --fit flag: exit after fitting
+    
     engine = PredictionEngine(stats_manager, fitted_params)
     
     if fitted_params:
@@ -588,18 +708,47 @@ def main():
         confirm = input("\n   Place these bets? (y/n): ").strip().lower()
         
         if confirm == 'y':
-            place_bets(state, value_bets)
+            place_bets(state, value_bets, history)
             print(f"\n   ✅ {len(value_bets)} bets placed!")
             print(f"   💰 New bankroll: €{state['current_state']['bankroll']:.2f}")
+            
+            # Auto-log to EXPERIMENT.md
+            _append_experiment_log(state, value_bets, today)
         else:
             print("\n   ❌ Bets cancelled.")
     
     # Update state
     state['current_state']['last_run'] = today
     state['current_state']['day'] += 1
+    state['current_state']['bankroll'] = round(state['current_state']['bankroll'], 2)
     save_state(state)
     
     print(f"\n✅ Day complete! Bankroll: €{state['current_state']['bankroll']:.2f}")
+
+
+def _append_experiment_log(state: dict, bets: list, today: str):
+    """Append a daily summary to EXPERIMENT.md."""
+    try:
+        bankroll = state['current_state']['bankroll']
+        day = state['current_state']['day']
+        total_stake = sum(b['stake'] for b in bets)
+        
+        lines = [f"\n### Day {day} — {today}\n"]
+        lines.append(f"**Bankroll**: €{bankroll:.2f} | **Bets placed**: {len(bets)} | **Staked**: €{total_stake:.2f}\n")
+        lines.append("| Match | Market | Tip | Odds | Stake | EV |")
+        lines.append("|-------|--------|-----|------|-------|----|")
+        
+        for b in bets:
+            lines.append(
+                f"| {b['match']} | {b.get('market','')} | {b['tip']} | "
+                f"{b['odds']:.2f} | €{b['stake']:.2f} | +{b['ev']*100:.1f}% |"
+            )
+        lines.append("")
+        
+        with open(EXPERIMENT_DOC, 'a') as f:
+            f.write('\n'.join(lines))
+    except Exception as e:
+        print(f"   ⚠️ Could not update EXPERIMENT.md: {e}")
 
 
 if __name__ == "__main__":

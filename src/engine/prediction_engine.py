@@ -190,12 +190,6 @@ class PredictionEngine:
             'over_25': float(over_25),
             'under_25': float(under_25),
             'btts': float(btts),
-            'btts_prob': float(btts),
-            'home_win_prob': home_win,
-            'away_win_prob': away_win,
-            'draw_prob': draw,
-            'home_xg_expected': home_lambda,
-            'away_xg_expected': away_lambda,
             'most_likely_score': f"{most_likely_h}-{most_likely_a}",
             'most_likely_score_prob': float(matrix[most_likely_h, most_likely_a]),
         }
@@ -269,6 +263,8 @@ class PredictionEngine:
             ('2', pred['away_win'], odds.get('2'), f"2 ({away})"),
             ('Over 2.5', pred['over_25'], odds.get('over_25'), "Over 2.5 Goals"),
             ('Under 2.5', pred['under_25'], odds.get('under_25'), "Under 2.5 Goals"),
+            ('BTTS Yes', pred['btts'], odds.get('btts_yes'), "Both Teams To Score"),
+            ('BTTS No', 1 - pred['btts'], odds.get('btts_no'), "No BTTS"),
         ]
         
         value_bets = []

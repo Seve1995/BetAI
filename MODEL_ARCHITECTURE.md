@@ -11,7 +11,7 @@ graph TD
     subgraph "Data Ingestion"
         A1[FotMob Scraper] --> A2[League Fixtures & Scores]
         A1 --> A3[Team xG Stats]
-        B1[The Odds API] --> B2[H2H & Totals Odds]
+        B1[The Odds API] --> B2["H2H, Totals & BTTS Odds"]
     end
 
     subgraph "Learning Engine"
@@ -23,13 +23,15 @@ graph TD
     subgraph "Prediction Engine"
         C3 --> D1{Prediction Engine}
         A3 --> D1
-        D1 --> D2[Dixon-Coles Poisson Model]
+        D1 --> D2["7 Markets: 1X2, O/U 2.5, BTTS"]
     end
 
     subgraph "Experiment Execution"
-        D2 --> E1[Value Bet Finder]
+        D2 --> E1["Value Bet Finder (with 1X2 dedup)"]
         B2 --> E1
         E1 --> E2[(Experiment State)]
+        E2 -->|Auto-resolve| A2
+        E2 -->|Predictions| C1
     end
 ```
 
@@ -62,13 +64,11 @@ Unlike static models that just use averages, BetAI **fits** these parameters usi
 
 ## 🚀 Future Roadmap
 
-### Short Term (The "Better Learning" phase)
+### Short Term
 - **Closing Line Value (CLV)**: Tracking if we consistently beat the market.
-- **Auto-refit**: Weekly automated `--fit` runs.
-- **More Markets**: Both Teams To Score (BTTS) value betting integration.
+- **Player-Level Data**: Adjusting team ratings based on key player injuries/lineups.
 
 ### Medium Term (Advanced Features)
-- **Player-Level Data**: Adjusting team ratings based on key player injuries/lineups.
 - **In-Play Modeling**: Updating probabilities based on live match events.
 - **Multi-Bookmaker Arbitrage**: Finding the best price across 10+ bookmakers.
 

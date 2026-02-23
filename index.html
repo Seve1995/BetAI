@@ -732,10 +732,21 @@
 
         function renderChart(state) {
             const ctx = document.getElementById('bankrollChart').getContext('2d');
-            const points = [{ day: 0, val: state.experiment.initial_bankroll }];
-            let running = state.experiment.initial_bankroll;
-            state.completed_bets.forEach((b, i) => { running += b.profit || 0; points.push({ day: i + 1, val: running }); });
-            points.push({ day: state.current_state.day, val: state.current_state.bankroll });
+
+            // Use bankroll_history if available, otherwise fallback to bet-level computation
+            let points;
+            if (state.bankroll_history && state.bankroll_history.length > 0) {
+                points = state.bankroll_history.map(h => ({ label: h.date, val: h.bankroll }));
+                // Prepend Day 0 if history starts after experiment start
+                if (points[0].label !== state.experiment.start_date) {
+                    points.unshift({ label: 'Start', val: state.experiment.initial_bankroll });
+                }
+            } else {
+                points = [{ label: 'Day 0', val: state.experiment.initial_bankroll }];
+                let running = state.experiment.initial_bankroll;
+                state.completed_bets.forEach((b, i) => { running += b.profit || 0; points.push({ label: `Day ${i + 1}`, val: running }); });
+                points.push({ label: `Day ${state.current_state.day}`, val: state.current_state.bankroll });
+            }
 
             if (bankrollChart) bankrollChart.destroy();
             const c = getChartColors();
@@ -744,7 +755,7 @@
 
             bankrollChart = new Chart(ctx, {
                 type: 'line',
-                data: { labels: points.map(p => `Day ${p.day}`), datasets: [{ data: points.map(p => p.val), borderColor: c.line, backgroundColor: grad, fill: true, tension: 0.4, pointRadius: 4, borderWidth: 3 }] },
+                data: { labels: points.map(p => p.label), datasets: [{ data: points.map(p => p.val), borderColor: c.line, backgroundColor: grad, fill: true, tension: 0.4, pointRadius: 4, borderWidth: 3 }] },
                 options: {
                     responsive: true, maintainAspectRatio: false,
                     plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(13,17,23,0.9)', titleColor: '#fff', bodyColor: '#e6edf3', padding: 10, displayColors: false, callbacks: { label: ctx => '€' + ctx.raw.toFixed(2) } } },
