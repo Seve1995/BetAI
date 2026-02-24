@@ -5,9 +5,9 @@
     "initial_bankroll": 100.0
   },
   "current_state": {
-    "bankroll": 80.67,
+    "bankroll": 90.37,
     "day": 1,
-    "last_run": "2026-02-23"
+    "last_run": "2026-02-24"
   },
   "strategy": {
     "version": "2.2",
@@ -20,14 +20,15 @@
   },
   "stats": {
     "total_bets": 5,
-    "wins": 0,
-    "losses": 0,
-    "pending": 5,
+    "wins": 1,
+    "losses": 4,
+    "pending": 0,
     "total_staked": 19.33,
-    "total_returns": 0.0,
-    "total_profit": 0.0
+    "total_returns": 9.7,
+    "total_profit": -9.63
   },
-  "pending_bets": [
+  "pending_bets": [],
+  "completed_bets": [
     {
       "date": "2026-02-23",
       "match": "Everton vs Man United",
@@ -39,7 +40,9 @@
       "ev": 0.28537714386953617,
       "edge": 0.07206493532058994,
       "our_prob": 0.3245901878458425,
-      "status": "PENDING"
+      "status": "PENDING",
+      "result": "LOSS",
+      "profit": -2.41
     },
     {
       "date": "2026-02-23",
@@ -52,7 +55,9 @@
       "ev": 0.25252443228019017,
       "edge": 0.054896615713084795,
       "our_prob": 0.2722879200609109,
-      "status": "PENDING"
+      "status": "PENDING",
+      "result": "LOSS",
+      "profit": -1.75
     },
     {
       "date": "2026-02-23",
@@ -65,7 +70,9 @@
       "ev": 0.2155340660633126,
       "edge": 0.09579291825036118,
       "our_prob": 0.5402373626948056,
-      "status": "PENDING"
+      "status": "PENDING",
+      "result": "WIN",
+      "profit": 5.39
     },
     {
       "date": "2026-02-23",
@@ -78,7 +85,9 @@
       "ev": 0.207743523907034,
       "edge": 0.09617755736436762,
       "our_prob": 0.5591405203273305,
-      "status": "PENDING"
+      "status": "PENDING",
+      "result": "LOSS",
+      "profit": -4.48
     },
     {
       "date": "2026-02-23",
@@ -91,14 +100,19 @@
       "ev": 0.17098289514077536,
       "edge": 0.10238496715016487,
       "our_prob": 0.7011873623597458,
-      "status": "PENDING"
+      "status": "PENDING",
+      "result": "LOSS",
+      "profit": -6.38
     }
   ],
-  "completed_bets": [],
   "bankroll_history": [
     {
       "date": "2026-02-23",
       "bankroll": 80.67
+    },
+    {
+      "date": "2026-02-24",
+      "bankroll": 90.37
     }
   ],
   "learnings": [
